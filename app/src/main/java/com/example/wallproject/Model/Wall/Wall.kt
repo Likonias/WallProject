@@ -1,4 +1,4 @@
-package com.example.wallproject.Model
+package com.example.wallproject.Model.Wall
 
 class Wall {
 
