@@ -1,10 +1,9 @@
 package com.example.wallproject.Model.Research
 
-enum class Currency (val value : Int) {
+enum class Currency (val value : Int, val chance : Double) {
 
-    STONE(1),
-    BRONZE(100),
-    IRON(500),
-    GOLD(1000)
+    BRONZE(100, 0.1),
+    IRON(500, 0.01),
+    GOLD(1000, 0.001)
 
 }
