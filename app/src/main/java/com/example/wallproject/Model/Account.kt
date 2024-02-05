@@ -1,5 +1,7 @@
 package com.example.wallproject.Model
 
-data class Account(){
+data class Account(var cityName : String){
+
+
 
 }

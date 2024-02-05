@@ -1,4 +1,4 @@
-package com.example.wallproject.Model
+package com.example.wallproject.Model.Research
 
 enum class Currency (val value : Int) {
 
