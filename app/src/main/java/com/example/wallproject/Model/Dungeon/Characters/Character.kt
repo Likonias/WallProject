@@ -6,7 +6,6 @@ abstract class Character{
 
     abstract var name : String
     abstract var health : Double
-    open var isDead : Boolean = false
     abstract var attack : Attack
     abstract var defense : Defense
 
@@ -15,11 +14,11 @@ abstract class Character{
     private val hundred = 100.0
     private val zero = 0.0
 
-    fun isDead (): Boolean {
+    fun isDead(): Boolean {
         return (health <= zero)
     }
 
-    fun attack(character: Character){
+    fun attack(character: Character) : Boolean{
 
         var trueAttack = calculateAttackTrue(character)
 
@@ -29,6 +28,8 @@ abstract class Character{
         }
 
         character.health = character.health - (trueAttack.attackDmg + trueAttack.abilityPower)
+
+        return character.isDead()
 
     }
 

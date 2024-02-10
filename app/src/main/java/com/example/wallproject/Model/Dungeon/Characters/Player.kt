@@ -9,6 +9,42 @@ data class Player(
 
     var level : Int = 0
 
+    var pointsToSpend = 0
 
+    fun levelUp(){
+
+
+
+    }
+
+    fun updateHealth(){
+
+
+
+    }
+
+    fun updateAD(){
+
+
+
+    }
+
+    fun updateAP(){
+
+
+
+    }
+
+    fun updateArmor(){
+
+
+
+    }
+
+    fun updateMagicResist(){
+
+
+
+    }
 
 }
