@@ -1,23 +1,22 @@
 package com.example.wallproject.Model.Wall
 
+import com.example.wallproject.Model.Research.Currency
 import com.example.wallproject.Model.Research.CurrencyEnum
 
-data class Tool(var name : String, var miningPower : Double, var timeToMine : Double, var cost : Double){
+data class Tool(var name : String, var miningPower : Double, var timeToMine : Double, var cost : Double, var upgradeCost : Currency){
 
-    private val zero = 0.0
+    private val zero = 0
     private val upgradePowerIndex = 0.1
     private val upgradeTimeIndex = 0.95
-    private val upgradeCostIndex = 1.5
-    private val addIndex = 2.0
+    private val upgradeCostIndex = 2.5
+    private val addIndex = 5.0
 
-    var level : Int = zero.toInt()
-    var count : Int = zero.toInt()
+    var level : Int = zero
+    var count : Int = zero
 
     var baseMiningPower : Double = miningPower
-    var upgradeCost : Double = cost * upgradeCostIndex
     var addCost : Double = cost * addIndex
 
-    lateinit var currency : CurrencyEnum
 
     fun addTool(){
 
@@ -38,7 +37,15 @@ data class Tool(var name : String, var miningPower : Double, var timeToMine : Do
 
         level++
 
-        upgradeCost = upgradeCost * upgradeCostIndex
+        upgradeCurrencyCost()
+
+    }
+
+    private fun upgradeCurrencyCost(){
+
+        upgradeCost.gold = (upgradeCost.gold * upgradeCostIndex).toInt()
+        upgradeCost.silver = (upgradeCost.silver * upgradeCostIndex).toInt()
+        upgradeCost.bronze = (upgradeCost.bronze * upgradeCostIndex).toInt()
 
     }
 
