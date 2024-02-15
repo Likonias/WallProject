@@ -1,7 +1,6 @@
 package com.example.wallproject.Model.Wall
 
-import com.example.wallproject.Model.Research.Currency
-import kotlin.math.min
+import com.example.wallproject.Model.Research.CurrencyEnum
 
 data class Tool(var name : String, var miningPower : Double, var timeToMine : Double, var cost : Double){
 
@@ -18,7 +17,7 @@ data class Tool(var name : String, var miningPower : Double, var timeToMine : Do
     var upgradeCost : Double = cost * upgradeCostIndex
     var addCost : Double = cost * addIndex
 
-    lateinit var currency : Currency
+    lateinit var currency : CurrencyEnum
 
     fun addTool(){
 
