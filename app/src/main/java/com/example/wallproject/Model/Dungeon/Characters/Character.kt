@@ -17,7 +17,6 @@ abstract class Character{
 
     fun isDead(): Boolean {
         return (health <= zero)
-        //todo remake it into a var
     }
 
     fun attack(character: Character) : Boolean{
@@ -74,7 +73,7 @@ abstract class Character{
     //function calculates chance for a critical strike
     private fun isCritical (luck : Double) : Boolean {
 
-        var result = Random.nextDouble(101.0)
+        var result = Random.nextDouble(hundred + 1)
 
         return (result < luck)
 
