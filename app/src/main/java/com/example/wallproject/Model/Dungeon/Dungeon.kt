@@ -2,7 +2,7 @@ package com.example.wallproject.Model.Dungeon
 
 import com.example.wallproject.Model.Dungeon.Characters.Enemy
 
-data class Dungeon(var enemies : MutableList<Enemy>, var name : String, var description : String) {
+data class Dungeon(val id : Int, var enemies : MutableList<Enemy>, var name : String, var description : String) {
 
     var isDiscovered : Boolean = false
 

@@ -9,13 +9,15 @@ abstract class Character{
     abstract var attack : Attack
     abstract var defense : Defense
 
-    private val defenseThreshold = 0.8
-    private val criticalMultiplier = 1.5
-    private val hundred = 100.0
-    private val zero = 0.0
+    //transient is exlucing values of being serialized by the GSON class for JSON
+    @Transient private val defenseThreshold = 0.8
+    @Transient private val criticalMultiplier = 1.5
+    @Transient private val hundred = 100.0
+    @Transient private val zero = 0.0
 
     fun isDead(): Boolean {
         return (health <= zero)
+        //todo remake it into a var
     }
 
     fun attack(character: Character) : Boolean{
