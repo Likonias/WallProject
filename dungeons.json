@@ -1,0 +1,1 @@
+[{"enemies":[{"id":0,"name":"Zombie","health":100.0,"attack":{"attackDmg":1.0,"abilityPower":1.0,"luck":1.0},"defense":{"armor":10.0,"magicResist":15.0},"defenseThreshold":0.8,"criticalMultiplier":1.5,"hundred":100.0,"zero":0.0}],"name":"Name","description":"Descript","isDiscovered":false}]
