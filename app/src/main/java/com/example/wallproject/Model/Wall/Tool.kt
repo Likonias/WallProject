@@ -3,16 +3,19 @@ package com.example.wallproject.Model.Wall
 import com.example.wallproject.Model.Research.Currency
 import com.example.wallproject.Model.Research.CurrencyEnum
 
-data class Tool(var name : String, var miningPower : Double, var timeToMine : Double, var cost : Double, var upgradeCost : Currency){
+data class Tool(val id : Int, var name : String, var miningPower : Double, var timeToMine : Double, var cost : Double, var upgradeCost : Currency, val researchCost : Int){
 
-    private val zero = 0
-    private val upgradePowerIndex = 0.1
-    private val upgradeTimeIndex = 0.95
-    private val upgradeCostIndex = 2.5
-    private val addIndex = 5.0
+    //transient is exlucing values of being serialized by the GSON class for JSON
+    @Transient private val zero = 0
+    @Transient private val upgradePowerIndex = 0.1
+    @Transient private val upgradeTimeIndex = 0.95
+    @Transient private val upgradeCostIndex = 2.5
+    @Transient private val addIndex = 5.0
 
     var level : Int = zero
     var count : Int = zero
+
+    var isResearched : Boolean = false
 
     var baseMiningPower : Double = miningPower
     var addCost : Double = cost * addIndex
