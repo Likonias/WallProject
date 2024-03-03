@@ -8,5 +8,4 @@ data class Enemy(val id : Int,
 ) : Character(){
 
 
-
 }

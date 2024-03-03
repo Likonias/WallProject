@@ -20,6 +20,4 @@ data class Dungeon(val id : Int, var enemies : MutableList<Enemy>, var name : St
 
     }
 
-
-
 }

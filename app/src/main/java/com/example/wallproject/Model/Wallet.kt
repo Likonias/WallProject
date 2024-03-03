@@ -2,7 +2,9 @@ package com.example.wallproject.Model
 
 data class Wallet(var balance : Double = 0.0) {
 
-    fun withdraw(amount : Double) : Double{
+    //todo maybe redo this wallet
+
+    fun withdraw(amount : Double) : Double {
 
         if(isEnoughBalance(amount))
             balance = balance - amount
@@ -11,7 +13,7 @@ data class Wallet(var balance : Double = 0.0) {
 
     }
 
-    fun deposit(amount: Double) : Double{
+    fun deposit(amount: Double) : Double {
 
         balance = balance + amount
 
@@ -19,7 +21,13 @@ data class Wallet(var balance : Double = 0.0) {
 
     }
 
-    private fun isEnoughBalance(amount: Double) : Boolean{
+    fun getBalanceInt() : Int {
+
+        return balance.toInt()
+
+    }
+
+    private fun isEnoughBalance(amount: Double) : Boolean {
         return amount < balance
     }
 
