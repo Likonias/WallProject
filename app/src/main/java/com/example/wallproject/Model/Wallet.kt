@@ -2,14 +2,13 @@ package com.example.wallproject.Model
 
 data class Wallet(var balance : Double = 0.0) {
 
-    //todo maybe redo this wallet
+    fun buy(cost : Double) : Boolean {
 
-    fun withdraw(amount : Double) : Double {
+        if(isEnoughBalance(cost))
+            balance = balance - cost
+            return true
 
-        if(isEnoughBalance(amount))
-            balance = balance - amount
-
-        return balance
+        return false
 
     }
 
@@ -28,7 +27,9 @@ data class Wallet(var balance : Double = 0.0) {
     }
 
     private fun isEnoughBalance(amount: Double) : Boolean {
+
         return amount < balance
+
     }
 
 }
