@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "195382908581",
+    "project_id": "wallproject-23634",
+    "storage_bucket": "wallproject-23634.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195382908581:android:4b96cc9e2c47bdb562df4c",
+        "android_client_info": {
+          "package_name": "com.example.wallproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7e3qrhaa5W1MmujujxiA6A3oUNiYMXE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
