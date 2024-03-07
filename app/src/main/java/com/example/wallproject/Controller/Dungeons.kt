@@ -14,6 +14,8 @@ class Dungeons() {
 
     private var dungeons : MutableList<Dungeon> = mutableListOf()
 
+
+
     init {
         //todo make sure to fix this
         //loadDungeons()
@@ -35,7 +37,12 @@ class Dungeons() {
 
     fun saveDungeons() {
         val jsonString = Gson().toJson(dungeons)
+
         File(dungeonsPathName).writeText(jsonString)
+    }
+
+    fun getJsonString() : String{
+        return Gson().toJson(dungeons).toString()
     }
 
     fun getEnemyFromDungeon(dungeonId : Int) : Enemy? {
