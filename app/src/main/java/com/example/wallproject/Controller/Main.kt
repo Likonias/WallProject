@@ -3,7 +3,7 @@ package com.example.wallproject.Controller
 fun main() {
 
 
-    var game = Game()
+    //var game = Game()
 
 
 

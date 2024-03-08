@@ -1,5 +1,6 @@
 package com.example.wallproject.Controller
 
+import android.content.Context
 import com.example.wallproject.Model.Account
 import com.example.wallproject.Model.Dungeon.Dungeon
 import com.example.wallproject.Model.Research.Currency
@@ -9,10 +10,10 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
 
-class Game {
+class Game (context : Context){
 
     var tools : MutableList<Tool> = mutableListOf()
-    var dungeons = Dungeons()
+    var dungeons = Dungeons(context)
     var research = Research()
 
 

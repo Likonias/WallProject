@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var game = Game()
+        var game = Game(this)
 
         val data = hashMapOf(
             "json" to game.dungeons.getJsonString()
@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         db.collection("base")
             .add(data)
-
 
     }
 }
