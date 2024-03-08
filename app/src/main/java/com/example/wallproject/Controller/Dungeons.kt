@@ -21,24 +21,25 @@ class Dungeons(context: Context) {
     init {
         //todo make sure to fix this
         loadDungeons()
-        var enemies : MutableList<Enemy> = mutableListOf()
-        enemies.add(Enemy(0, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
-        enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
-        dungeons.add(Dungeon(0, enemies, "Name", "Descript"))
-        enemies.add(Enemy(0, "Zombie1", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
-        enemies.add(Enemy(1, "Zombie Strong2", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
-        dungeons.add(Dungeon(1, enemies, "Dun2", "Descript2"))
+//        var enemies : MutableList<Enemy> = mutableListOf()
+//        enemies.add(Enemy(0, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+//        enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+//        dungeons.add(Dungeon(0, enemies, "Name", "Descript"))
+//        enemies.add(Enemy(0, "Zombie1", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+//        enemies.add(Enemy(1, "Zombie Strong2", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+//        dungeons.add(Dungeon(1, enemies, "Dun2", "Descript2"))
         saveDungeons()
 
     }
 
     fun loadDungeons(){
 
-        context.openFileInput(dungeonsPathName).bufferedReader().useLines { lines ->
-            lines.fold("") { some, text ->
-                "$some\n$text"
-            }
+        context.openFileInput(dungeonsPathName).use { inputStream ->
+            val jsonText = inputStream.bufferedReader().use { it.readText() }
+            val type = object : TypeToken<List<Dungeon>>() {}.type
+            dungeons = Gson().fromJson(jsonText, type)
         }
+
     }
 
     fun saveDungeons() {
