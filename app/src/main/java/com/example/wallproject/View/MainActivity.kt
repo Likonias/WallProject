@@ -6,6 +6,7 @@ import com.example.wallproject.Controller.Dungeons
 import com.example.wallproject.Controller.Game
 import com.example.wallproject.R
 import com.google.firebase.Firebase
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.firestore
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         db.collection("base")
             .add(data)
+
+        val docRef = db.collection("base").document("dungeons")
+
+        docRef.set(data, SetOptions.merge())
+
 
     }
 }

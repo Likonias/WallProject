@@ -24,6 +24,14 @@ class Game (context : Context){
         println(tools.get(0))
     }
 
+    private fun loadTools(){
+
+    }
+
+    private fun saveTools(){
+
+    }
+
 
 
 
