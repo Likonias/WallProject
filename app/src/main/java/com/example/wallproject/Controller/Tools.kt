@@ -24,6 +24,8 @@ class Tools (context: Context) {
     init {
         loadTools()
         tools.add(Tool(0, "Hellbreaker", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(0, "Pickaxe", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+
         saveTools()
     }
 
@@ -56,13 +58,33 @@ class Tools (context: Context) {
 
     }
 
-    fun get (toolId : Int) : Tool {
+    fun getTool (toolId : Int) : Tool {
         return tools.get(toolId)
     }
 
     fun upgrade (toolId: Int) {
 
 
+
+    }
+
+    private fun getMiningPower() : Double {
+
+        var miningPower = 0.0
+
+        tools.forEach { tool -> miningPower += tool.miningPower }
+
+        return miningPower
+
+    }
+
+    private fun getTime() : Double {
+
+        var time = 0.0
+
+        tools.forEach { tool -> time += tool.miningPower }
+
+        return time
 
     }
 

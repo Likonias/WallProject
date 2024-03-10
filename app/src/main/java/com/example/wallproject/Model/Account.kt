@@ -1,8 +1,10 @@
 package com.example.wallproject.Model
 
-data class Account(var villageName : String, var heroName : String){
+class Account(){
 
-    //todo finish setting up account
+    lateinit var villageName : String
+    lateinit var heroName : String
+
 
 
 
