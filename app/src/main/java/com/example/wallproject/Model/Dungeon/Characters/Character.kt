@@ -9,6 +9,8 @@ abstract class Character{
     abstract var attack : Attack
     abstract var defense : Defense
 
+    var currentHealth = health
+
     //transient is exlucing values of being serialized by the GSON class for JSON
     @Transient private val defenseThreshold = 0.8
     @Transient private val criticalMultiplier = 1.5
@@ -16,10 +18,10 @@ abstract class Character{
     @Transient private val zero = 0
 
     fun isDead(): Boolean {
-        return (health <= zero)
+        return (currentHealth <= zero)
     }
 
-    fun attack(character: Character) : Boolean{
+    fun attack(character: Character) : Double{
 
         var trueAttack = calculateAttackTrue(character)
 
@@ -28,9 +30,15 @@ abstract class Character{
             trueAttack.abilityPower = (trueAttack.abilityPower * criticalMultiplier).toInt()
         }
 
-        character.health = character.health - (trueAttack.attackDmg + trueAttack.abilityPower)
+        character.currentHealth = character.currentHealth - (trueAttack.attackDmg + trueAttack.abilityPower)
 
-        return character.isDead()
+        return character.currentHealth
+
+    }
+
+    fun resetHealth(){
+
+        currentHealth = health
 
     }
 

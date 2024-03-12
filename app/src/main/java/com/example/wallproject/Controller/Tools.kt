@@ -64,7 +64,25 @@ class Tools (context: Context) {
 
     fun upgrade (toolId: Int) {
 
+        tools.forEach { tool ->
+            if(tool.id == toolId)
+                tool.upgrade()
+        }
 
+    }
+
+    fun add (toolId: Int) {
+
+        tools.forEach { tool ->
+            if(tool.id == toolId)
+                tool.addTool()
+        }
+
+    }
+
+    fun getSPS() : Double {
+
+        return getMiningPower() / getTime()
 
     }
 

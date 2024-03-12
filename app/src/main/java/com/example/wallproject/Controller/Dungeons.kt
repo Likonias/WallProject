@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.wallproject.Model.Dungeon.Characters.Attack
 import com.example.wallproject.Model.Dungeon.Characters.Defense
 import com.example.wallproject.Model.Dungeon.Characters.Enemy
+import com.example.wallproject.Model.Dungeon.Characters.Player
 import com.example.wallproject.Model.Dungeon.Dungeon
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
@@ -23,6 +24,11 @@ class Dungeons(context: Context) {
 
     private var context = context
 
+    private lateinit var player : Player
+    private lateinit var enemy : Enemy
+
+    private lateinit var currentEnemy : Enemy
+
     init {
         //todo make sure to fix this
         loadDungeons()
@@ -34,6 +40,45 @@ class Dungeons(context: Context) {
         enemies.add(Enemy(1, "Zombie Strong2", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
         dungeons.add(Dungeon(1, enemies, "Dun2", "Descript2"))
         saveDungeons()
+
+    }
+
+    fun initializePlayer(playerName : String){
+        player = Player(playerName)
+    }
+
+    fun getEnemyFromDungeon(dungeonId : Int) : Enemy? {
+
+        return dungeons.get(dungeonId).getCurrentEnemy()
+
+    }
+
+    fun attackEnemyFromDungeon(dungeonId: Int) {
+
+        currentEnemy = getEnemyFromDungeon(dungeonId)!!
+
+    }
+
+    fun playerAttack() : Double {
+
+        var healthAfterAttack = player.attack(currentEnemy)
+
+        if (enemy.isDead())
+            player.resetHealth()
+
+        return healthAfterAttack
+
+    }
+
+    fun enemyAttack() : Double {
+
+        var healthAfterAttack = enemy.attack(player)
+
+        if(player.isDead())
+            player.resetHealth()
+            enemy.resetHealth()
+
+        return healthAfterAttack
 
     }
 
@@ -64,12 +109,6 @@ class Dungeons(context: Context) {
         context.openFileOutput(dungeonsPathName, Context.MODE_PRIVATE).use {
             it.write(jsonString.toByteArray())
         }
-
-    }
-
-    fun getEnemyFromDungeon(dungeonId : Int) : Enemy? {
-
-        return dungeons.get(dungeonId).getCurrentEnemy()
 
     }
 

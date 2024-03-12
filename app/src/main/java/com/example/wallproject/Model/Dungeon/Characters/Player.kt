@@ -2,9 +2,9 @@ package com.example.wallproject.Model.Dungeon.Characters
 
 data class Player(
     override var name: String,
-    override var health: Double,
-    override var attack: Attack,
-    override var defense: Defense
+    override var health: Double = 100.0,
+    override var attack: Attack = Attack(1, 1, 1),
+    override var defense: Defense = Defense(1, 1)
 ) : Character(){
 
     @Transient private val healthMultiplier = 0.05
