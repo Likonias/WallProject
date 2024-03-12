@@ -63,7 +63,7 @@ class Dungeons(context: Context) {
 
         var healthAfterAttack = player.attack(currentEnemy)
 
-        if (enemy.isDead())
+        if (currentEnemy.isDead())
             player.resetHealth()
 
         return healthAfterAttack
@@ -72,11 +72,11 @@ class Dungeons(context: Context) {
 
     fun enemyAttack() : Double {
 
-        var healthAfterAttack = enemy.attack(player)
+        var healthAfterAttack = currentEnemy.attack(player)
 
         if(player.isDead())
             player.resetHealth()
-            enemy.resetHealth()
+            currentEnemy.resetHealth()
 
         return healthAfterAttack
 
