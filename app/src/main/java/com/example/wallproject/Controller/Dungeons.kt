@@ -25,9 +25,9 @@ class Dungeons(context: Context) {
     private var context = context
 
     private lateinit var player : Player
-    private lateinit var enemy : Enemy
-
     private lateinit var currentEnemy : Enemy
+
+    var currentDungeon : Int = 0
 
     init {
         //todo make sure to fix this
@@ -49,17 +49,21 @@ class Dungeons(context: Context) {
 
     fun getEnemyFromDungeon(dungeonId : Int) : Enemy? {
 
+        currentDungeon = dungeonId
+
         return dungeons.get(dungeonId).getCurrentEnemy()
 
     }
 
     fun attackEnemyFromDungeon(dungeonId: Int) {
 
+        currentDungeon = dungeonId
+
         currentEnemy = getEnemyFromDungeon(dungeonId)!!
 
     }
 
-    fun playerAttack() : Double {
+    internal fun playerAttack() : Double {
 
         var healthAfterAttack = player.attack(currentEnemy)
 
@@ -70,15 +74,29 @@ class Dungeons(context: Context) {
 
     }
 
-    fun enemyAttack() : Double {
+    internal fun enemyAttack() : Double {
 
         var healthAfterAttack = currentEnemy.attack(player)
 
-        if(player.isDead())
+        if(player.isDead()) {
             player.resetHealth()
             currentEnemy.resetHealth()
+        }
 
         return healthAfterAttack
+
+    }
+
+    fun discover(dungeonId: Int) {
+        dungeons.forEach { dungeon ->
+            if(dungeon.id == dungeonId)
+                dungeon.isDiscovered = true
+        }
+    }
+
+    fun getDungeons() : MutableList<Dungeon> {
+
+        return dungeons
 
     }
 

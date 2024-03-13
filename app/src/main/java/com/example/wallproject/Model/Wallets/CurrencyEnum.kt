@@ -1,4 +1,4 @@
-package com.example.wallproject.Model.Research
+package com.example.wallproject.Model.Wallets
 
 enum class CurrencyEnum (val value : Int, val chance : Double) {
 

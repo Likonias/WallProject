@@ -1,9 +1,7 @@
 package com.example.wallproject.Controller
 
 import android.content.Context
-import com.example.wallproject.Model.Dungeon.Dungeon
-import com.example.wallproject.Model.Research.Currency
-import com.example.wallproject.Model.Research.CurrencyWallet
+import com.example.wallproject.Model.Wallets.Currency
 import com.example.wallproject.Model.Wall.Tool
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
@@ -82,9 +80,33 @@ class Tools (context: Context) {
 
     }
 
+    fun discover (toolId: Int) {
+
+        tools.forEach { tool ->
+            if(tool.id == toolId)
+                tool.isDiscovered = true
+        }
+
+    }
+
+    fun research (toolId: Int) {
+
+        tools.forEach { tool ->
+            if(tool.id == toolId)
+                tool.isResearched = true
+        }
+
+    }
+
     fun getSPS() : Double {
 
         return getMiningPower() / getTime()
+
+    }
+
+    fun getTools() : MutableList<Tool> {
+
+        return tools
 
     }
 

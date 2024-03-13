@@ -2,7 +2,7 @@ package com.example.wallproject.Model.Wall
 
 import kotlin.math.round
 
-class Wall {
+class Wall(private val onWallBreak: () -> Unit) {
 
     //transient is exlucing values of being serialized by the GSON class for JSON
     @Transient private val healthMultiplier = 2.5
@@ -27,6 +27,8 @@ class Wall {
         health = healthUpdate()
 
         shells--
+
+        onWallBreak()
 
     }
 

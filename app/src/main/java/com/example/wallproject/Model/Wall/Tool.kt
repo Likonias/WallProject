@@ -1,7 +1,6 @@
 package com.example.wallproject.Model.Wall
 
-import com.example.wallproject.Model.Research.Currency
-import com.example.wallproject.Model.Research.CurrencyEnum
+import com.example.wallproject.Model.Wallets.Currency
 
 data class Tool(val id : Int, var name : String, var miningPower : Double, var timeToMine : Double, var cost : Double, var upgradeCost : Currency, val researchCost : Int){
 
@@ -15,6 +14,7 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
     var level : Int = zero
     var count : Int = zero
 
+    var isDiscovered : Boolean = false
     var isResearched : Boolean = false
 
     var baseMiningPower : Double = miningPower

@@ -12,7 +12,20 @@
           "package_name": "com.example.wallproject"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "195382908581-bpd87ekkj5kevvan935ntvjul4dsnrft.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wallproject",
+            "certificate_hash": "d53fc9027a3248a1f6b8578324e0ec0a04f4f797"
+          }
+        },
+        {
+          "client_id": "195382908581-0gv5921ibb7tk29c8du8dlg4boqlim3e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC7e3qrhaa5W1MmujujxiA6A3oUNiYMXE0"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195382908581-0gv5921ibb7tk29c8du8dlg4boqlim3e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

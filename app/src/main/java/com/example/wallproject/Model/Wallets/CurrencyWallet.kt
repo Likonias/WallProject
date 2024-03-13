@@ -1,4 +1,4 @@
-package com.example.wallproject.Model.Research
+package com.example.wallproject.Model.Wallets
 
 class CurrencyWallet() {
 
@@ -25,7 +25,7 @@ class CurrencyWallet() {
 
     fun buy(cost: Currency): Boolean {
 
-        if (canAfford(cost)) {
+        if (isEnoughBalance(cost)) {
 
             currencies[CurrencyEnum.GOLD] = currencies.getValue(CurrencyEnum.GOLD) - cost.gold
             currencies[CurrencyEnum.SILVER] = currencies.getValue(CurrencyEnum.SILVER) - cost.silver
@@ -39,7 +39,7 @@ class CurrencyWallet() {
 
     }
 
-    private fun canAfford(cost: Currency): Boolean {
+    fun isEnoughBalance(cost: Currency): Boolean {
         val currentGold = currencies.getValue(CurrencyEnum.GOLD)
         val currentSilver = currencies.getValue(CurrencyEnum.SILVER)
         val currentBronze = currencies.getValue(CurrencyEnum.BRONZE)
