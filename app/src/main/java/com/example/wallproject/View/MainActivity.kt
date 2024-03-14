@@ -3,6 +3,7 @@ package com.example.wallproject.View
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -62,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                     game.loadGame()
                     textHehe = findViewById<TextView?>(R.id.textHehe)
                     textHehe.text =  googleSignIn.getCurrentUserUid()
-                    println(game)
                 },
                 onFailure = {
                     // Sign in failed
@@ -75,6 +75,19 @@ class MainActivity : AppCompatActivity() {
             googleSignIn.signIn(signInLauncher)
         }
 
+        findViewById<Button>(R.id.sign_out_button).setOnClickListener {
+            googleSignIn.signOut(
+                onSuccess = {
+                    textHehe.text = "Signed out"
+                },
+                onFailure = {
+                    // Sign-out failed, handle the failure scenario
+                }
+            )
+        }
+
+        textHehe = findViewById<TextView?>(R.id.textHehe)
+        textHehe.text =  googleSignIn.getCurrentUserUid()
     }
 
 }

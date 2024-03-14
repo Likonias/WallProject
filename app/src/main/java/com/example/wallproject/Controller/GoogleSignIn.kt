@@ -48,6 +48,21 @@ class GoogleSignIn(private val activity: AppCompatActivity) {
         }
     }
 
+    fun signOut(onSuccess: () -> Unit, onFailure: () -> Unit) {
+        // Firebase sign out
+        mAuth.signOut()
+
+        // Google sign out
+        mGoogleSignInClient.signOut()
+            .addOnCompleteListener(activity) { task ->
+                if (task.isSuccessful) {
+                    onSuccess.invoke()
+                } else {
+                    onFailure.invoke()
+                }
+            }
+    }
+
     fun getCurrentUserUid(): String? {
         return mAuth.currentUser?.uid
     }

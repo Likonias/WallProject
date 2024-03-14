@@ -137,49 +137,30 @@ class Game (private var context : Context){
 
 //todo finish loading from firestore
     fun loadGame(){
-        try {
-            val inputStream = context.openFileInput("game_data.json")
-            val reader = BufferedReader(InputStreamReader(inputStream))
-            val accountJson = reader.readLine()
-            val toolsJson = reader.readLine()
-            val dungeonsJson = reader.readLine()
-            val wallJson = reader.readLine()
-            val walletJson = reader.readLine()
-            val currencyWalletJson = reader.readLine()
 
-            // Parse JSON strings back to objects
-            val gson = Gson()
-            account = gson.fromJson(accountJson, Account::class.java)
-            tools = gson.fromJson(toolsJson, Tools::class.java)
-            dungeons = gson.fromJson(dungeonsJson, Dungeons::class.java)
-            wall = gson.fromJson(wallJson, Wall::class.java)
-            wallet = gson.fromJson(walletJson, Wallet::class.java)
-            currencyWallet = gson.fromJson(currencyWalletJson, CurrencyWallet::class.java)
 
-            true
-        } catch (e: Exception) {
-            println("Error loading game data locally: $e")
-            false
-        }
+        //load local data
+        val inputStream = context.openFileInput("game_data.json")
+        val reader = BufferedReader(InputStreamReader(inputStream))
+        val accountJson = reader.readLine()
+        val toolsJson = reader.readLine()
+        val dungeonsJson = reader.readLine()
+        val wallJson = reader.readLine()
+        val walletJson = reader.readLine()
+        val currencyWalletJson = reader.readLine()
+
+        // Parse JSON strings back to objects
+        val gson = Gson()
+        account = gson.fromJson(accountJson, Account::class.java)
+        tools = gson.fromJson(toolsJson, Tools::class.java)
+        dungeons = gson.fromJson(dungeonsJson, Dungeons::class.java)
+        wall = gson.fromJson(wallJson, Wall::class.java)
+        wallet = gson.fromJson(walletJson, Wallet::class.java)
+        currencyWallet = gson.fromJson(currencyWalletJson, CurrencyWallet::class.java)
     }
-//    this works for saving into the database!!!
-//    fun saveGame() {
-//
-//        val data = hashMapOf(
-//
-//            "account" to Gson().toJson(account),
-//            "tools" to Gson().toJson(tools),
-//            "dungeons" to Gson().toJson(dungeons),
-//            "wall" to Gson().toJson(wall),
-//            "wallet" to Gson().toJson(wallet),
-//            "currencyWallet" to Gson().toJson(currencyWallet)
-//
-//        )
-//        docRef.document(account.googleId.toString()).set(data)
-//
-//    }
 
     fun saveGame() {
+
         // Convert game data to JSON strings
         val accountJson = Gson().toJson(account)
         val toolsJson = Gson().toJson(tools)
@@ -188,41 +169,39 @@ class Game (private var context : Context){
         val walletJson = Gson().toJson(wallet)
         val currencyWalletJson = Gson().toJson(currencyWallet)
 
-        // Save to Firestore
-        val data = hashMapOf(
-            "account" to accountJson,
-            "tools" to toolsJson,
-            "dungeons" to dungeonsJson,
-            "wall" to wallJson,
-            "wallet" to walletJson,
-            "currencyWallet" to currencyWalletJson
-        )
-        docRef.document(account.googleId.toString()).set(data)
-            .addOnSuccessListener {
-                println("Game data saved to Firestore successfully.")
-            }
-            .addOnFailureListener { e ->
-                println("Error saving game data to Firestore: $e")
-            }
+        if(account.googleId != null){
+
+            // Save to Firestore
+            val data = hashMapOf(
+                "account" to accountJson,
+                "tools" to toolsJson,
+                "dungeons" to dungeonsJson,
+                "wall" to wallJson,
+                "wallet" to walletJson,
+                "currencyWallet" to currencyWalletJson
+            )
+
+            docRef.document(account.googleId.toString()).set(data)
+                .addOnSuccessListener {
+                    println("Game data saved to Firestore successfully.")
+                }
+                .addOnFailureListener { e ->
+                    println("Error saving game data to Firestore: $e")
+                }
+
+        }
 
         // Save locally
-        try {
-            val outputStream = context.openFileOutput("game_data.json", Context.MODE_PRIVATE)
-            val writer = OutputStreamWriter(outputStream)
-            writer.use {
-                it.write(accountJson + "\n")
-                it.write(toolsJson + "\n")
-                it.write(dungeonsJson + "\n")
-                it.write(wallJson + "\n")
-                it.write(walletJson + "\n")
-                it.write(currencyWalletJson + "\n")
-            }
-            println("Game data saved locally.")
-        } catch (e: Exception) {
-            println("Error saving game data locally: $e")
+        val outputStream = context.openFileOutput("game_data.json", Context.MODE_PRIVATE)
+        val writer = OutputStreamWriter(outputStream)
+        writer.use {
+            it.write(accountJson + "\n")
+            it.write(toolsJson + "\n")
+            it.write(dungeonsJson + "\n")
+            it.write(wallJson + "\n")
+            it.write(walletJson + "\n")
+            it.write(currencyWalletJson + "\n")
         }
     }
-
-
 
 }
