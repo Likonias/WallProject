@@ -2,7 +2,7 @@ package com.example.wallproject.Model.Wallets
 
 class CurrencyWallet() {
 
-    val zero : Int = 0
+    @Transient val zero : Int = 0
 
     var currencies: MutableMap<CurrencyEnum, Int> = mutableMapOf()
 

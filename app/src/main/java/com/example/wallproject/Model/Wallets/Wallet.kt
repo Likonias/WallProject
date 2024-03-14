@@ -1,6 +1,8 @@
 package com.example.wallproject.Model.Wallets
 
-data class Wallet(var balance : Double = 0.0) {
+class Wallet() {
+
+    var balance : Double = 0.0
 
     fun buy(cost : Double) : Boolean {
 

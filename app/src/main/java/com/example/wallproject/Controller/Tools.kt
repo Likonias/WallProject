@@ -8,16 +8,14 @@ import com.google.firebase.firestore.firestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class Tools (context: Context) {
+class Tools (@Transient private var context: Context) {
 
     private val toolsPathName = "tools.json"
 
     private var tools : MutableList<Tool> = mutableListOf()
 
-    private val db = Firebase.firestore
-    private val docRef = db.collection("base").document("tools")
-
-    private var context = context
+    @Transient private val db = Firebase.firestore
+    @Transient private val docRef = db.collection("base").document("tools")
 
     //todo finish tool upgrades with wallets and costs
 
@@ -26,7 +24,7 @@ class Tools (context: Context) {
         tools.add(Tool(0, "Hellbreaker", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
         tools.add(Tool(0, "Pickaxe", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
 
-        saveTools()
+        //saveTools()
     }
 
     private fun loadTools() {

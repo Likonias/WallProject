@@ -4,9 +4,6 @@ class Account(){
 
     lateinit var villageName : String
     lateinit var heroName : String
-
-
-
-
+    var googleId : String? = null
 
 }
