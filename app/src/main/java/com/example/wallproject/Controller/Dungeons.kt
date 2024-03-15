@@ -85,11 +85,15 @@ class Dungeons(@Transient private var context: Context) {
 
     }
 
-    fun discover(dungeonId: Int) {
+    fun discoverNext() {
+
         dungeons.forEach { dungeon ->
-            if(dungeon.id == dungeonId)
+            if(!dungeon.isDiscovered){
                 dungeon.isDiscovered = true
+                return
+            }
         }
+
     }
 
     fun getDungeons() : MutableList<Dungeon> {

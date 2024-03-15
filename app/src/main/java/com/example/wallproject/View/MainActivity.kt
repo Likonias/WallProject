@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.wallproject.Controller.Game
+import com.example.wallproject.Controller.GoogleSignIn
 import com.example.wallproject.R
 import com.google.android.gms.common.SignInButton
 
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 //
 //
 //    }
-    private lateinit var googleSignIn: com.example.wallproject.Controller.GoogleSignIn
+    private lateinit var googleSignIn: GoogleSignIn
     private lateinit var signInLauncher: ActivityResultLauncher<Intent>
 
     private lateinit var textHehe : TextView
@@ -54,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         game = Game(this)
 
-        googleSignIn = com.example.wallproject.Controller.GoogleSignIn(this)
+        googleSignIn = GoogleSignIn(this)
 
         signInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             googleSignIn.handleSignInResult(result.data,
@@ -65,8 +66,7 @@ class MainActivity : AppCompatActivity() {
                     textHehe.text =  googleSignIn.getCurrentUserUid()
                 },
                 onFailure = {
-                    // Sign in failed
-                    // Handle failure, display a message to the user, etc.
+                    textHehe.text = "Sign in failed"
                 }
             )
         }

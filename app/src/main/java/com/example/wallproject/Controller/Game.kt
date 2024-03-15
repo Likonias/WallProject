@@ -1,6 +1,7 @@
 package com.example.wallproject.Controller
 
 import android.content.Context
+import android.util.Log
 import com.example.wallproject.Model.Account
 import com.example.wallproject.Model.Wallets.CurrencyWallet
 import com.example.wallproject.Model.Wall.Wall
@@ -27,8 +28,6 @@ class Game (private var context : Context){
 
     //5 first items can be
     private val itemsForDiscoveryValue = 5
-    //todo make a function to get discoveredDungeonId after loaded dungeons
-    private var discoveredDungeonId = 0
     private var currentDungeonId : Int? = null
 
     private val db = Firebase.firestore
@@ -123,9 +122,7 @@ class Game (private var context : Context){
 
         if(wall.shells <= 50 && wall.shells % 10 == 0){
 
-            dungeons.discover(discoveredDungeonId)
-
-            discoveredDungeonId++
+            dungeons.discoverNext()
 
         }
 
@@ -135,28 +132,63 @@ class Game (private var context : Context){
         account.googleId = googleId
     }
 
-//todo finish loading from firestore
     fun loadGame(){
 
+        if(account.googleId != null){
 
-        //load local data
-        val inputStream = context.openFileInput("game_data.json")
-        val reader = BufferedReader(InputStreamReader(inputStream))
-        val accountJson = reader.readLine()
-        val toolsJson = reader.readLine()
-        val dungeonsJson = reader.readLine()
-        val wallJson = reader.readLine()
-        val walletJson = reader.readLine()
-        val currencyWalletJson = reader.readLine()
+            // Fetch data from Firestore
+            docRef.document(account.googleId.toString()).get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val accountJson = document.getString("account")
+                        val toolsJson = document.getString("tools")
+                        val dungeonsJson = document.getString("dungeons")
+                        val wallJson = document.getString("wall")
+                        val walletJson = document.getString("wallet")
+                        val currencyWalletJson = document.getString("currencyWallet")
 
-        // Parse JSON strings back to objects
-        val gson = Gson()
-        account = gson.fromJson(accountJson, Account::class.java)
-        tools = gson.fromJson(toolsJson, Tools::class.java)
-        dungeons = gson.fromJson(dungeonsJson, Dungeons::class.java)
-        wall = gson.fromJson(wallJson, Wall::class.java)
-        wallet = gson.fromJson(walletJson, Wallet::class.java)
-        currencyWallet = gson.fromJson(currencyWalletJson, CurrencyWallet::class.java)
+                        val gson = Gson()
+                        account = gson.fromJson(accountJson, Account::class.java)
+                        tools = gson.fromJson(toolsJson, Tools::class.java)
+                        dungeons = gson.fromJson(dungeonsJson, Dungeons::class.java)
+                        wall = gson.fromJson(wallJson, Wall::class.java)
+                        wallet = gson.fromJson(walletJson, Wallet::class.java)
+                        currencyWallet = gson.fromJson(currencyWalletJson, CurrencyWallet::class.java)
+                    } else {
+                        Log.e("Firestore", "No document found for user: ${account.googleId}")
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Log.e("Firestore", "Error loading game data from Firestore: ${e.message}", e)
+                }
+
+        } else {
+
+            try {
+                //load local data
+                val inputStream = context.openFileInput("game_data.json")
+                val reader = BufferedReader(InputStreamReader(inputStream))
+                val accountJson = reader.readLine()
+                val toolsJson = reader.readLine()
+                val dungeonsJson = reader.readLine()
+                val wallJson = reader.readLine()
+                val walletJson = reader.readLine()
+                val currencyWalletJson = reader.readLine()
+
+                // Parse JSON strings back to objects
+                val gson = Gson()
+                account = gson.fromJson(accountJson, Account::class.java)
+                tools = gson.fromJson(toolsJson, Tools::class.java)
+                dungeons = gson.fromJson(dungeonsJson, Dungeons::class.java)
+                wall = gson.fromJson(wallJson, Wall::class.java)
+                wallet = gson.fromJson(walletJson, Wallet::class.java)
+                currencyWallet = gson.fromJson(currencyWalletJson, CurrencyWallet::class.java)
+
+            } catch (e: Exception) {
+                Log.e("YourTag", "An error occurred: ${e.message}", e)
+            }
+
+        }
     }
 
     fun saveGame() {
@@ -191,17 +223,24 @@ class Game (private var context : Context){
 
         }
 
-        // Save locally
-        val outputStream = context.openFileOutput("game_data.json", Context.MODE_PRIVATE)
-        val writer = OutputStreamWriter(outputStream)
-        writer.use {
-            it.write(accountJson + "\n")
-            it.write(toolsJson + "\n")
-            it.write(dungeonsJson + "\n")
-            it.write(wallJson + "\n")
-            it.write(walletJson + "\n")
-            it.write(currencyWalletJson + "\n")
+        try {
+
+            // Save locally
+            val outputStream = context.openFileOutput("game_data.json", Context.MODE_PRIVATE)
+            val writer = OutputStreamWriter(outputStream)
+            writer.use {
+                it.write(accountJson + "\n")
+                it.write(toolsJson + "\n")
+                it.write(dungeonsJson + "\n")
+                it.write(wallJson + "\n")
+                it.write(walletJson + "\n")
+                it.write(currencyWalletJson + "\n")
+            }
+
+        } catch (e: Exception) {
+            Log.e("YourTag", "An error occurred: ${e.message}", e)
         }
+
     }
 
 }

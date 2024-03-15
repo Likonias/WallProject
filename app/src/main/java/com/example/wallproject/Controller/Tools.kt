@@ -17,8 +17,6 @@ class Tools (@Transient private var context: Context) {
     @Transient private val db = Firebase.firestore
     @Transient private val docRef = db.collection("base").document("tools")
 
-    //todo finish tool upgrades with wallets and costs
-
     init {
         loadTools()
         tools.add(Tool(0, "Hellbreaker", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
