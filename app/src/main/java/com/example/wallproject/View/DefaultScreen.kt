@@ -4,44 +4,21 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import com.example.wallproject.Controller.Game
 import com.example.wallproject.Controller.GoogleSignIn
 import com.example.wallproject.R
+import com.example.wallproject.databinding.ActivityDefaultScreenBinding
 import com.google.android.gms.common.SignInButton
 
-class MainActivity : AppCompatActivity() {
+class DefaultScreen : AppCompatActivity() {
 
-//    val db = Firebase.firestore
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//        var game = Game(this)
-//
-////        val data = hashMapOf(
-////            "json" to game.dungeons.getJsonString()
-////        )
-//// adding just base data, random id
-////        db.collection("base")
-////            .add(data)
-////
-////        val docRef = db.collection("base").document("dungeons")
-////
-////        var dun : MutableList<Dungeon> = mutableListOf()
-////
-////        docRef.get().addOnSuccessListener { document ->
-////
-////            val jsonText = document.getString("json")
-////            val type = object : TypeToken<List<Dungeon>>() {}.type
-////            dun = Gson().fromJson(jsonText, type)
-////
-////        }
-//
-//
-//    }
+    private lateinit var binding: ActivityDefaultScreenBinding
+
     private lateinit var googleSignIn: GoogleSignIn
     private lateinit var signInLauncher: ActivityResultLauncher<Intent>
 
@@ -50,8 +27,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var game: Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityDefaultScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         game = Game(this)
 
@@ -86,8 +65,34 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
+        if(game.account.heroName == null){
+            showPopup()
+        }
+
         textHehe = findViewById<TextView?>(R.id.textHehe)
         textHehe.text =  googleSignIn.getCurrentUserUid()
+    }
+
+    private fun showPopup() {
+        val inflater = layoutInflater
+        val dialogView = inflater.inflate(R.layout.dialog_custom, null)
+
+        val editTextInput = dialogView.findViewById<EditText>(R.id.editTextInput)
+
+        val builder = AlertDialog.Builder(this)
+        builder.setView(dialogView)
+
+        builder.setPositiveButton("OK") { dialog, which ->
+            val userInput = editTextInput.text.toString()
+            // Process userInput as needed
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, which ->
+            dialog.cancel()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
 }

@@ -96,6 +96,18 @@ class Dungeons(@Transient private var context: Context) {
 
     }
 
+    fun isAnyDiscovered() : Boolean {
+
+        dungeons.forEach { dungeon ->
+            if(dungeon.isDiscovered){
+                return true
+            }
+        }
+
+        return false
+
+    }
+
     fun getDungeons() : MutableList<Dungeon> {
 
         return dungeons

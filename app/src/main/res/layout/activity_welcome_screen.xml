@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".View.WelcomeScreen">
 
+    <TextView
+        android:id="@+id/textGameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gameTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42000002"
+        style="@style/textHeader" />
+
+    <TextView
+        android:id="@+id/textPlayerHint"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/play_bold"
+        android:text="Click to enter the game"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textGameTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
