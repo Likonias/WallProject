@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import com.example.wallproject.Controller.Game
 import com.example.wallproject.Controller.GoogleSignIn
+import com.example.wallproject.Model.GameSingleton
 import com.example.wallproject.R
 import com.example.wallproject.databinding.ActivityDefaultScreenBinding
 import com.google.android.gms.common.SignInButton
@@ -32,7 +33,14 @@ class DefaultScreen : AppCompatActivity() {
         binding = ActivityDefaultScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        game = Game(this)
+        //todo finish coments
+
+        //todo finish setting up game, loading or saving
+
+        //using application context for some reason
+        GameSingleton.game = Game(this.applicationContext)
+
+        game = GameSingleton.game
 
         googleSignIn = GoogleSignIn(this)
 
@@ -40,7 +48,7 @@ class DefaultScreen : AppCompatActivity() {
             googleSignIn.handleSignInResult(result.data,
                 onSuccess = {
                     game.setGoogleId(googleSignIn.getCurrentUserUid())
-                    game.loadGame()
+                    game.saveGame()
                     textHehe = findViewById<TextView?>(R.id.textHehe)
                     textHehe.text =  googleSignIn.getCurrentUserUid()
                 },
