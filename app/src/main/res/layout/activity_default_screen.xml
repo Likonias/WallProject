@@ -7,7 +7,7 @@
     tools:context=".View.DefaultScreen">
 
     <TextView
-        android:id="@+id/textHehe"
+        android:id="@+id/spsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"

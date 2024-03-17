@@ -15,6 +15,10 @@ import com.example.wallproject.Model.GameSingleton
 import com.example.wallproject.R
 import com.example.wallproject.databinding.ActivityDefaultScreenBinding
 import com.google.android.gms.common.SignInButton
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class DefaultScreen : AppCompatActivity() {
 
@@ -48,6 +52,21 @@ class DefaultScreen : AppCompatActivity() {
             //todo finish popup logic
         }
 
+        startUpdatingSPSText()
+
+    }
+
+    private fun startUpdatingSPSText() {
+        //todo make it update the rest of the data, that needs to be updated the same way
+        GlobalScope.launch(Dispatchers.Main) {
+            while (true) {
+                // Update spsText
+                binding.spsText.text = game.wall.health.toString()
+
+                // Delay for 1 second
+                delay(1000)
+            }
+        }
     }
 
     private fun showPopup(prompt : String) {
