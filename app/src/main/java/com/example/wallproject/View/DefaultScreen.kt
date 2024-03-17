@@ -20,11 +20,6 @@ class DefaultScreen : AppCompatActivity() {
 
     private lateinit var binding: ActivityDefaultScreenBinding
 
-    private lateinit var googleSignIn: GoogleSignIn
-    private lateinit var signInLauncher: ActivityResultLauncher<Intent>
-
-    private lateinit var textHehe : TextView
-
     private lateinit var game: Game
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,48 +37,24 @@ class DefaultScreen : AppCompatActivity() {
 
         game = GameSingleton.game
 
-        googleSignIn = GoogleSignIn(this)
+        game.loadGame()
 
-        signInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            googleSignIn.handleSignInResult(result.data,
-                onSuccess = {
-                    game.setGoogleId(googleSignIn.getCurrentUserUid())
-                    game.saveGame()
-                    textHehe = findViewById<TextView?>(R.id.textHehe)
-                    textHehe.text =  googleSignIn.getCurrentUserUid()
-                },
-                onFailure = {
-                    textHehe.text = "Sign in failed"
-                }
-            )
-        }
-
-        findViewById<SignInButton>(R.id.google_sign_in_button).setOnClickListener {
-            googleSignIn.signIn(signInLauncher)
-        }
-
-        findViewById<Button>(R.id.sign_out_button).setOnClickListener {
-            googleSignIn.signOut(
-                onSuccess = {
-                    textHehe.text = "Signed out"
-                },
-                onFailure = {
-                    // Sign-out failed, handle the failure scenario
-                }
-            )
+        binding.profileButton.setOnClickListener {
+            startActivity(Intent(this, ProfileScreen::class.java))
         }
 
         if(game.account.heroName == null){
-            showPopup()
+            showPopup("Enter hero name: ")
+            //todo finish popup logic
         }
 
-        textHehe = findViewById<TextView?>(R.id.textHehe)
-        textHehe.text =  googleSignIn.getCurrentUserUid()
     }
 
-    private fun showPopup() {
+    private fun showPopup(prompt : String) {
         val inflater = layoutInflater
         val dialogView = inflater.inflate(R.layout.dialog_custom, null)
+
+        dialogView.findViewById<TextView>(R.id.textPrompt).text = prompt
 
         val editTextInput = dialogView.findViewById<EditText>(R.id.editTextInput)
 
@@ -92,7 +63,8 @@ class DefaultScreen : AppCompatActivity() {
 
         builder.setPositiveButton("OK") { dialog, which ->
             val userInput = editTextInput.text.toString()
-            // Process userInput as needed
+            game.account.heroName = userInput
+            game.saveGame()
         }
 
         builder.setNegativeButton("Cancel") { dialog, which ->
