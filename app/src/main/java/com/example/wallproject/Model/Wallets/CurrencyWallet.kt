@@ -1,5 +1,7 @@
 package com.example.wallproject.Model.Wallets
 
+import kotlin.random.Random
+
 class CurrencyWallet() {
 
     @Transient val zero : Int = 0
@@ -36,6 +38,27 @@ class CurrencyWallet() {
         }
 
         return false
+
+    }
+
+    fun searchThroughStone(stones : Int) {
+
+        var foundCurrencies = Currency(0,0,0)
+
+        repeat(stones) {
+            val randomNumber = Random.nextDouble(0.0, 100.0)
+
+            if (randomNumber <= CurrencyEnum.GOLD.chance) {
+                foundCurrencies.gold += 1
+            } else if (randomNumber <= CurrencyEnum.SILVER.chance) {
+                foundCurrencies.silver += 1
+            }else if (randomNumber <= CurrencyEnum.BRONZE.chance) {
+                foundCurrencies.bronze += 1
+            }
+
+        }
+
+        deposit(foundCurrencies)
 
     }
 

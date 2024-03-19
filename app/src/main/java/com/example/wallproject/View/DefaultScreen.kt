@@ -58,6 +58,8 @@ class DefaultScreen : AppCompatActivity() {
 
                 binding.wallHealthText.text = game.wall.health.toString()
 
+                binding.villageNameText.text = game.account.villageName
+
                 // Delay for 1 second
                 delay(1000)
             }

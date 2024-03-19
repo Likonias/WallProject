@@ -118,6 +118,18 @@ class Game (private var context : Context){
 
     }
 
+    fun searchThroughStones(stones : Int) : Boolean{
+        if(wallet.isEnoughBalance(stones.toDouble())){
+
+            wallet.buy(stones.toDouble())
+
+            currencyWallet.searchThroughStone(stones)
+
+            return true
+        }
+        return false
+    }
+
     private fun checkIfDungeonIsDiscovered() {
 
         if(wall.shells <= 50 && wall.shells % 10 == 0){
