@@ -32,7 +32,6 @@ class DefaultScreen : AppCompatActivity() {
         //todo finish setting up game, loading or saving
 
         //using application context for some reason
-        GameSingleton.game = Game(this.applicationContext)
 
         game = GameSingleton.game
 
