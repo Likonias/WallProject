@@ -46,6 +46,14 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
 
     private fun upgradeCurrencyCost(){
 
+        if(upgradeCost.silver == 0 && upgradeCost.bronze > 1000){
+            upgradeCost.silver = 1
+        }
+
+        if(upgradeCost.gold == 0 && upgradeCost.silver > 1000){
+            upgradeCost.gold = 1
+        }
+
         upgradeCost.gold = (upgradeCost.gold * upgradeCostIndex).toInt()
         upgradeCost.silver = (upgradeCost.silver * upgradeCostIndex).toInt()
         upgradeCost.bronze = (upgradeCost.bronze * upgradeCostIndex).toInt()

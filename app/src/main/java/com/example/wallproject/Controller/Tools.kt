@@ -19,12 +19,12 @@ class Tools (@Transient private var context: Context) {
 
     init {
         //loadTools()
-
+//todo finish tools
         tools.add(Tool(0, "Pickaxe", 1.0, 10.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(1, "Stone Saw", 1.5, 5.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(2, "Jackhammer", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(3, "Automatic Saw", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(4, "Stone Destoryer", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(1, "Stone Saw", 1.5, 15.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(2, "Jackhammer", 5.0, 30.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(3, "Automatic Saw", 15.0, 60.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(4, "Stone Destoryer", 30.0, 90.0, 100.0, Currency(0, 10, 20), 5000))
         tools.add(Tool(5, "Crystal Pickaxe", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
         tools.add(Tool(6, "Mystic Hammer", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
         tools.add(Tool(7, "Mage", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
@@ -105,7 +105,9 @@ class Tools (@Transient private var context: Context) {
 
     fun getSPS() : Double {
 
-        return getMiningPower() / getTime()
+        val roundedNumber = String.format("%.2f", getMiningPower() / getTime()).toDouble()
+
+        return roundedNumber
 
     }
 

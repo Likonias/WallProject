@@ -5,6 +5,8 @@ import android.util.Log
 import com.example.wallproject.Model.Account
 import com.example.wallproject.Model.Wallets.CurrencyWallet
 import com.example.wallproject.Model.Wall.Wall
+import com.example.wallproject.Model.Wallets.Currency
+import com.example.wallproject.Model.Wallets.CurrencyEnum
 import com.example.wallproject.Model.Wallets.Wallet
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
@@ -128,6 +130,60 @@ class Game (private var context : Context){
             return true
         }
         return false
+    }
+
+    fun buyBronze(count : Int) : Boolean {
+
+        var fullCost = count.toDouble() * CurrencyEnum.BRONZE.value
+
+        if(wallet.isEnoughBalance(fullCost)){
+
+            wallet.buy(fullCost)
+
+            currencyWallet.buy(Currency(0, 0, count))
+
+            return true
+
+        }
+
+        return false
+
+    }
+
+    fun buySilver(count: Int) : Boolean {
+
+        var fullCost = count.toDouble() * CurrencyEnum.SILVER.value
+
+        if(wallet.isEnoughBalance(fullCost)){
+
+            wallet.buy(fullCost)
+
+            currencyWallet.buy(Currency(0,  count, 0))
+
+            return true
+
+        }
+
+        return false
+
+    }
+
+    fun buyGold(count: Int) : Boolean {
+
+        var fullCost = count.toDouble() * CurrencyEnum.GOLD.value
+
+        if(wallet.isEnoughBalance(fullCost)){
+
+            wallet.buy(fullCost)
+
+            currencyWallet.buy(Currency(count, 0, 0))
+
+            return true
+
+        }
+
+        return false
+
     }
 
     private fun checkIfDungeonIsDiscovered() {
