@@ -18,9 +18,18 @@ class Tools (@Transient private var context: Context) {
     @Transient private val docRef = db.collection("base").document("tools")
 
     init {
-        loadTools()
-        tools.add(Tool(0, "Hellbreaker", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(0, "Pickaxe", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        //loadTools()
+
+        tools.add(Tool(0, "Pickaxe", 1.0, 10.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(1, "Stone Saw", 1.5, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(2, "Jackhammer", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(3, "Automatic Saw", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(4, "Stone Destoryer", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(5, "Crystal Pickaxe", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(6, "Mystic Hammer", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(7, "Mage", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(8, "Magical Void", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(9, "Stone Annihilator", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
 
         //saveTools()
     }
