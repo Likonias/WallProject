@@ -6,6 +6,7 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
 
     //transient is exlucing values of being serialized by the GSON class for JSON
     @Transient private val zero = 0
+    @Transient private val addingNextCurrencyTreshold = 1000
     @Transient private val upgradePowerIndex = 0.1
     @Transient private val upgradeTimeIndex = 0.95
     @Transient private val upgradeCostIndex = 2.5
@@ -31,9 +32,9 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
 
     fun upgrade(){
 
-        if(level % 10 == 0)
+        if(level % 10 == zero)
             upgradeAll()
-        else if (level % 2 == 0)
+        else if (level % 2 == zero)
             upgradeTime()
         else
             upgradePower()
@@ -46,11 +47,11 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
 
     private fun upgradeCurrencyCost(){
 
-        if(upgradeCost.silver == 0 && upgradeCost.bronze > 1000){
+        if(upgradeCost.silver == zero && upgradeCost.bronze > addingNextCurrencyTreshold){
             upgradeCost.silver = 1
         }
 
-        if(upgradeCost.gold == 0 && upgradeCost.silver > 1000){
+        if(upgradeCost.gold == zero && upgradeCost.silver > addingNextCurrencyTreshold){
             upgradeCost.gold = 1
         }
 

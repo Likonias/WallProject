@@ -20,16 +20,16 @@ class Tools (@Transient private var context: Context) {
     init {
         //loadTools()
 //todo finish tools
-        tools.add(Tool(0, "Pickaxe", 1.0, 10.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(1, "Stone Saw", 1.5, 15.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(2, "Jackhammer", 5.0, 30.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(3, "Automatic Saw", 15.0, 60.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(4, "Stone Destoryer", 30.0, 90.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(5, "Crystal Pickaxe", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(6, "Mystic Hammer", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(7, "Mage", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(8, "Magical Void", 50.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
-        tools.add(Tool(9, "Stone Annihilator", 25.0, 5.0, 100.0, Currency(0, 10, 20), 5000))
+        tools.add(Tool(0, "Pickaxe", 1.0, 10.0, 100.0, Currency(0, 0, 10), 5000))
+        tools.add(Tool(1, "Stone Saw", 1.5, 15.0, 100.0, Currency(0, 0, 100), 5000))
+        tools.add(Tool(2, "Jackhammer", 5.0, 30.0, 100.0, Currency(0, 0, 500), 5000))
+        tools.add(Tool(3, "Automatic Saw", 15.0, 60.0, 100.0, Currency(0, 1, 500), 5000))
+        tools.add(Tool(4, "Stone Destoryer", 30.0, 90.0, 100.0, Currency(0, 10, 1000), 5000))
+        tools.add(Tool(5, "Crystal Pickaxe", 60.0, 120.0, 100.0, Currency(0, 50, 1000), 5000))
+        tools.add(Tool(6, "Mystic Hammer", 120.0, 140.0, 100.0, Currency(0, 150, 1500), 5000))
+        tools.add(Tool(7, "Mage", 160.0, 170.0, 100.0, Currency(0, 300, 2000), 5000))
+        tools.add(Tool(8, "Magical Void", 200.0, 200.0, 100.0, Currency(1, 500, 2500), 5000))
+        tools.add(Tool(9, "Stone Annihilator", 1100.0, 1000.0, 100.0, Currency(1000, 1000, 1000), 5000))
 
         //saveTools()
     }

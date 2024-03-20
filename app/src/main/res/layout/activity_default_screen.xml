@@ -9,14 +9,14 @@
     <TextView
         android:id="@+id/spsText"
         style="@style/textSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:text="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.561"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/shellsText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/stonesPerSecondSimpleText"
+        app:layout_constraintStart_toStartOf="@+id/shellsText"
+        app:layout_constraintTop_toTopOf="@+id/stonesPerSecondSimpleText" />
 
     <Button
         android:id="@+id/profileButton"
@@ -33,35 +33,41 @@
     <TextView
         android:id="@+id/wallHealthText"
         style="@style/textSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/spsText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/wallHealthSimpleText"
+        app:layout_constraintTop_toBottomOf="@+id/profileButton"
+        app:layout_constraintVertical_bias="0.04" />
 
     <TextView
         android:id="@+id/villageNameText"
         style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/profileButton"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.060000002" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/stonesSimpleText"
+        android:id="@+id/stonesPerSecondSimpleText"
         style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stones Per Second: "
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/spsText"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="354dp" />
+        app:layout_constraintTop_toBottomOf="@+id/shellsLeftSimpleText"
+        app:layout_constraintVertical_bias="0.39" />
 
     <TextView
         android:id="@+id/wallHealthSimpleText"
@@ -69,7 +75,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wall Health: "
-        tools:layout_editor_absoluteX="53dp"
-        tools:layout_editor_absoluteY="169dp" />
+        app:layout_constraintEnd_toStartOf="@+id/wallHealthText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wallHealthText" />
+
+    <TextView
+        android:id="@+id/shellsLeftSimpleText"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shells Remaining"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/shellsText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wallHealthSimpleText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/shellsText"
+        style="@style/textSmall"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/wallHealthText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/shellsLeftSimpleText"
+        app:layout_constraintStart_toStartOf="@+id/wallHealthText"
+        app:layout_constraintTop_toTopOf="@+id/shellsLeftSimpleText" />
+
+    <TextView
+        android:id="@+id/stonesSimpleText"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Stones: "
+        app:layout_constraintEnd_toStartOf="@+id/stonesText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/villageNameText" />
+
+    <TextView
+        android:id="@+id/stonesText"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/profileButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/stonesSimpleText"
+        app:layout_constraintTop_toTopOf="@+id/stonesSimpleText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
