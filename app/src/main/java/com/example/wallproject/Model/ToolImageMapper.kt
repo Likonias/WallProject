@@ -4,6 +4,7 @@ import com.example.wallproject.R
 
 object ToolImageMapper {
     val toolImageMap = mapOf(
+
         0 to R.drawable.tool_pickaxe,
         1 to R.drawable.tool_stone_saw,
         2 to R.drawable.tool_jackhammer,

@@ -2,4 +2,12 @@
     <string name="app_name">WallProject</string>
     <string name="web_client_id">195382908581-0gv5921ibb7tk29c8du8dlg4boqlim3e.apps.googleusercontent.com</string>
     <string name="gameTitle">THE WALL</string>
+    <string name="zero">0</string>
+    <string name="profile">Profile</string>
+    <string name="shells_remaining">Shells Remaining:</string>
+    <string name="stones_per_second">Stones Per Second:</string>
+    <string name="stones">Stones:</string>
+    <string name="wall_health">Wall Health:</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

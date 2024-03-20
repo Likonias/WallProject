@@ -13,6 +13,12 @@
         android:theme="@style/Theme.WallProject"
         tools:targetApi="31">
         <activity
+            android:name=".View.WallScreen"
+            android:exported="false" />
+        <activity
+            android:name=".View.Wall"
+            android:exported="false" />
+        <activity
             android:name=".View.ProfileScreen"
             android:exported="false" />
         <activity
@@ -26,7 +32,7 @@
         </activity>
         <activity
             android:name=".View.DefaultScreen"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
