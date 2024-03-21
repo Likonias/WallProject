@@ -23,11 +23,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/stones_per_second"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/researchCentreImageView"
         app:layout_constraintEnd_toStartOf="@+id/spsText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/toolsLinearLayout"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/wall_health"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/wallImageView"
         app:layout_constraintEnd_toStartOf="@+id/wallHealthText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,10 +106,10 @@
         app:layout_constraintStart_toEndOf="@+id/stonesSimpleText" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:id="@+id/wallImageView"
+        android:layout_width="0dp"
         android:layout_height="100sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/toolsLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,21 +118,23 @@
         app:srcCompat="@drawable/wall" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/toolsLinearLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50sp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:padding="2sp"
         app:layout_constraintBottom_toTopOf="@+id/spsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/wallImageView"
         app:layout_constraintVertical_bias="0.5">
 
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/researchCentreImageView"
         android:layout_width="150sp"
         android:layout_height="150sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -144,14 +146,15 @@
         app:srcCompat="@drawable/research_centre" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        android:id="@+id/dungeonImageView"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/wallImageView"
+        app:layout_constraintEnd_toEndOf="@+id/wallImageView"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/wallImageView"
         app:srcCompat="@drawable/dungeon_enterance" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

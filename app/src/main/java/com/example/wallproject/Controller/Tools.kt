@@ -30,6 +30,16 @@ class Tools (@Transient private var context: Context) {
         tools.add(Tool(7, "Mage", 160.0, 170.0, 100.0, Currency(0, 300, 2000), 5000))
         tools.add(Tool(8, "Magical Void", 200.0, 200.0, 100.0, Currency(1, 500, 2500), 5000))
         tools.add(Tool(9, "Stone Annihilator", 1100.0, 1000.0, 100.0, Currency(1000, 1000, 1000), 5000))
+        tools.get(0).isDiscovered = true
+        tools.get(1).isDiscovered = true
+        tools.get(2).isDiscovered = true
+        tools.get(3).isDiscovered = true
+        tools.get(4).isDiscovered = true
+        tools.get(5).isDiscovered = true
+        tools.get(6).isDiscovered = true
+        tools.get(7).isDiscovered = true
+        tools.get(8).isDiscovered = true
+        tools.get(9).isDiscovered = true
 
         //saveTools()
     }

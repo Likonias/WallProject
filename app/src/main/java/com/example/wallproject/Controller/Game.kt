@@ -52,7 +52,7 @@ class Game (private var context : Context){
     }
     //todo init for saving data, locally and from firestore
     init {
-        loadGame()
+        //loadGame()
     }
 
     fun addTool(toolId : Int) {
