@@ -30,6 +30,7 @@ class Game (private var context : Context){
 
     //5 first items can be
     private val itemsForDiscoveryValue = 5
+    private val firstDungeonThresholdShells = 20
     private var currentDungeonId : Int? = null
 
     private val db = Firebase.firestore
@@ -188,7 +189,7 @@ class Game (private var context : Context){
 
     private fun checkIfDungeonIsDiscovered() {
 
-        if(wall.shells <= 50 && wall.shells % 10 == 0){
+        if(wall.shells <= firstDungeonThresholdShells && wall.shells % 10 == 0){
 
             dungeons.discoverNext()
 

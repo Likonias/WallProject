@@ -22,6 +22,10 @@ class Wall(@Transient private val onWallBreak: () -> Unit) {
 
     }
 
+    fun getCurrentHealth() : Double{
+        return String.format("%.2f", health).toDouble()
+    }
+
     private fun breakShell(){
 
         health = healthUpdate()

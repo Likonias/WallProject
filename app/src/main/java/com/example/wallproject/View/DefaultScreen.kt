@@ -81,9 +81,11 @@ class DefaultScreen : AppCompatActivity() {
 
                 binding.spsText.text = game.tools.getSPS().toString()
 
-                binding.wallHealthText.text = game.wall.health.toString()
+                binding.wallHealthText.text = game.wall.getCurrentHealth().toString()
 
                 binding.villageNameText.text = game.account.villageName
+
+                binding.stonesText.text = game.wallet.getBalanceInt().toString()
 
                 if(!binding.dungeonImageView.isVisible && game.dungeons.isAnyDiscovered()){
                     binding.dungeonImageView.visibility = View.VISIBLE
@@ -97,30 +99,39 @@ class DefaultScreen : AppCompatActivity() {
 
     private fun populateTools() {
         val linearLayout: LinearLayout = binding.toolsLinearLayout
+        val screenWidth = resources.displayMetrics.widthPixels
+        val maxToolWidthInPixels = (50 * resources.displayMetrics.density).toInt() // Maximum width for each tool in pixels
 
-         for(tool in game.tools.getTools()) {
+        val toolsCount = game.tools.getActiveToolsCount()
 
-             if(tool.isDiscovered){
+        if (toolsCount > 0) {
+            // Calculate the available width for each tool
+            val availableWidth = screenWidth / toolsCount
 
-                 val imageView = ImageView(this)
+            for (tool in game.tools.getTools()) {
+                if (tool.isDiscovered && tool.count > 0) {
+                    val imageView = ImageView(this)
+                    val toolDrawableId = ToolImageMapper.toolImageMap[tool.id]
 
-                 val toolDrawableId = ToolImageMapper.toolImageMap[tool.id]
+                    if (toolDrawableId != null) {
 
-                 if (toolDrawableId != null) {
+                        val widthInPixels = if (availableWidth > maxToolWidthInPixels)
+                            maxToolWidthInPixels
+                        else
+                            availableWidth
 
-                     imageView.setImageResource(toolDrawableId)
+                        val heightInPixels = widthInPixels
 
-                     imageView.layoutParams = LinearLayout.LayoutParams(
-                         LinearLayout.LayoutParams.WRAP_CONTENT,
-                         LinearLayout.LayoutParams.WRAP_CONTENT,
-                         )
+                        imageView.setImageResource(toolDrawableId)
 
-                     linearLayout.addView(imageView)
-                 }
+                        val params = LinearLayout.LayoutParams(widthInPixels, heightInPixels)
+                        imageView.layoutParams = params
 
-             }
-
-         }
+                        linearLayout.addView(imageView)
+                    }
+                }
+            }
+        }
     }
 
     private fun showPopup(prompt : String) {

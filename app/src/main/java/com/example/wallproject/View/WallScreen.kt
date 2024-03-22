@@ -27,7 +27,7 @@ class WallScreen : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             while (true) {
 
-                binding.wallHealthText.text = GameSingleton.game.wall.health.toString()
+                binding.wallHealthText.text = GameSingleton.game.wall.getCurrentHealth().toString()
 
                 binding.shellsText.text = GameSingleton.game.wall.shells.toString()
 

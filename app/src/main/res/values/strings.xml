@@ -10,4 +10,6 @@
     <string name="wall_health">Wall Health:</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_out">Sign Out</string>
+    <string name="wall_description">The mighty wall has been standing before the humanity for ages, not anyone knowing of its hidden secrets. Now is the time, humanity is finnally ready to uncover the secrets of the Wall.</string>
+    <string name="wall_stats_header">Wall Stats:</string>
 </resources>

@@ -11,25 +11,12 @@
         style="@style/textHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wall Stats:"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        android:text="@string/wall_stats_header"
+        app:layout_constraintBottom_toTopOf="@+id/wallDescriptionSimpleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/textSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/wall_health"
-        app:layout_constraintBottom_toTopOf="@+id/shellsLeftSimpleText"
-        app:layout_constraintEnd_toStartOf="@+id/wallHealthText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wallStatsSimpleText"
         app:layout_constraintVertical_bias="0.5" />
 
     <TextView
@@ -50,14 +37,11 @@
         style="@style/textSmall"
         android:layout_width="222dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:text="@string/zero"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/shellsLeftSimpleText"
-        app:layout_constraintTop_toBottomOf="@+id/wallHealthText"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toTopOf="@+id/shellsLeftSimpleText" />
 
     <TextView
         android:id="@+id/wallHealthText"
@@ -65,10 +49,35 @@
         android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:text="@string/zero"
-        app:layout_constraintBottom_toTopOf="@+id/shellsText"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/shellsText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/shellsText"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wall_health"
+        app:layout_constraintBottom_toTopOf="@+id/shellsLeftSimpleText"
+        app:layout_constraintEnd_toStartOf="@+id/wallHealthText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wallDescriptionSimpleText"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/wallDescriptionSimpleText"
+        style="@style/textMiddle"
+        android:layout_width="336dp"
+        android:layout_height="239dp"
+        android:text="@string/wall_description"
+        app:layout_constraintBottom_toTopOf="@+id/wallHealthText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wallStatsSimpleText"
         app:layout_constraintVertical_bias="0.5" />
 
