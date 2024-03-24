@@ -71,6 +71,11 @@ class DefaultScreen : AppCompatActivity() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        populateTools() // Refresh tool icons when the screen becomes visible again
+    }
+
     //this prevents to go back to the welcome screen
     override fun onBackPressed() {}
 
@@ -98,6 +103,9 @@ class DefaultScreen : AppCompatActivity() {
     }
 
     private fun populateTools() {
+        //refreshes the data inside the linear layout
+        binding.toolsLinearLayout.removeAllViews()
+
         val linearLayout: LinearLayout = binding.toolsLinearLayout
         val screenWidth = resources.displayMetrics.widthPixels
         val maxToolWidthInPixels = (50 * resources.displayMetrics.density).toInt() // Maximum width for each tool in pixels

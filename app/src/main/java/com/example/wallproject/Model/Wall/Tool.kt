@@ -19,14 +19,12 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
     var isResearched : Boolean = false
 
     var baseMiningPower : Double = miningPower
-    var addCost : Double = cost * addIndex
-
 
     fun addTool(){
 
         count++
 
-        addCost = addCost * addIndex
+        cost = cost * addIndex
 
     }
 
@@ -43,6 +41,18 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
 
         upgradeCurrencyCost()
 
+    }
+
+    fun getTimeToMineFormated() : Double {
+        return String.format("%.2f", timeToMine).toDouble()
+    }
+
+    fun getMiningPowerFormated() : Double {
+        return String.format("%.2f", miningPower).toDouble()
+    }
+
+    fun isOwned() : Boolean {
+        return count > zero
     }
 
     private fun upgradeCurrencyCost(){
