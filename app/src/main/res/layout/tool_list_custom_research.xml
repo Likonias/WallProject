@@ -38,49 +38,44 @@
         style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0"
-        app:layout_constraintEnd_toStartOf="@+id/levelTextView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/toolImageView"
-        app:layout_constraintTop_toTopOf="@+id/levelTextView" />
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Level:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/toolImageView" />
 
     <TextView
         android:id="@+id/silverTextView"
         style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="0"
-        app:layout_constraintEnd_toStartOf="@+id/addButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bronzeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+        app:layout_constraintEnd_toEndOf="@+id/bronzeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/bronzeTextView" />
 
     <TextView
         android:id="@+id/bronzeTextView"
         style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
         android:text="0"
-        app:layout_constraintEnd_toStartOf="@+id/silverTextView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelTextView"
-        app:layout_constraintTop_toTopOf="@+id/silverTextView" />
+        app:layout_constraintEnd_toStartOf="@+id/addButton"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@+id/nameTextView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/levelTextView"
         style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
         android:text="0"
-        app:layout_constraintEnd_toStartOf="@+id/bronzeTextView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/levelSimpleTextView"
-        app:layout_constraintTop_toTopOf="@+id/bronzeTextView" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nameTextView"
+        app:layout_constraintStart_toEndOf="@+id/levelSimpleTextView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addButton"
@@ -96,4 +91,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <TextView
+        android:id="@+id/researchCostSimpleTextView"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="Research cost:"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addButton"
+        app:layout_constraintStart_toEndOf="@+id/toolImageView" />
+
+    <TextView
+        android:id="@+id/researchCostTextView"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/addButton"
+        app:layout_constraintStart_toEndOf="@+id/researchCostSimpleTextView"
+        app:layout_constraintTop_toTopOf="@+id/researchCostSimpleTextView" />
+
+    <TextView
+        android:id="@+id/goldTextView"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/silverTextView"
+        app:layout_constraintTop_toBottomOf="@+id/silverTextView" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ore_clutter_bronze"
+        tools:layout_editor_absoluteX="267dp"
+        tools:layout_editor_absoluteY="10dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
