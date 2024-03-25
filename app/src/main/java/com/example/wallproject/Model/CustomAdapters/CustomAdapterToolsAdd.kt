@@ -28,12 +28,12 @@ class CustomAdapterToolsAdd(private val toolsList: List<Tool>) :
         holder.countTextView.text = tool.count.toString()
 
         holder.addButton.setOnClickListener {
-            GameSingleton.game.addTool(tool.id)
 
-            holder.countTextView.text = tool.count.toString()
+            GameSingleton.game.addTool(tool.id)
 
             // Notify the adapter about the change in the dataset for the specific item
             notifyItemChanged(position)
+
         }
     }
 

@@ -60,6 +60,10 @@ class DefaultScreen : AppCompatActivity() {
             startActivity(Intent(this, ToolsScreen::class.java))
         }
 
+        binding.researchCentreImageView.setOnClickListener {
+            startActivity(Intent(this, ResearchScreen::class.java))
+        }
+
         if(game.account.villageName == null){
             showPopup("Enter village name: ")
             //todo finish popup logic

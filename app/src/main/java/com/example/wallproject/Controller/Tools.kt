@@ -20,7 +20,7 @@ class Tools (@Transient private var context: Context) {
     init {
         //loadTools()
 //todo finish tools
-        tools.add(Tool(0, "Pickaxe", 1.0, 10.0, 1.0, Currency(0, 0, 10), 5000))
+        tools.add(Tool(0, "Pickaxe", 1.0, 10.0, 1.0, Currency(0, 0, 10), 10))
         tools.add(Tool(1, "Stone Saw", 1.5, 15.0, 100.0, Currency(0, 0, 100), 5000))
         tools.add(Tool(2, "Jackhammer", 5.0, 30.0, 100.0, Currency(0, 0, 500), 5000))
         tools.add(Tool(3, "Automatic Saw", 15.0, 60.0, 100.0, Currency(0, 1, 500), 5000))
@@ -161,20 +161,6 @@ class Tools (@Transient private var context: Context) {
         }
 
         return discoveredTools
-
-    }
-
-    fun getToolsResearched() : MutableList<Tool> {
-
-        var researchedTools : MutableList<Tool> = mutableListOf()
-
-        for (tool in tools){
-            if(tool.isResearched){
-                researchedTools.add(tool)
-            }
-        }
-
-        return researchedTools
 
     }
 

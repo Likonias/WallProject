@@ -26,10 +26,10 @@ class ToolsScreen : AppCompatActivity() {
         customAdapterToolsAdd = CustomAdapterToolsAdd(GameSingleton.game.tools.getToolsDiscovered())
 
         // Set up RecyclerView with a LinearLayoutManager
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewAdd.layoutManager = LinearLayoutManager(this)
 
         // Attach the adapter to the RecyclerView
-        binding.recyclerView.adapter = customAdapterToolsAdd
+        binding.recyclerViewAdd.adapter = customAdapterToolsAdd
 
 
 

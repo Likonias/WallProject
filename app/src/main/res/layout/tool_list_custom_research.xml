@@ -128,27 +128,30 @@
         app:layout_constraintTop_toBottomOf="@+id/silverTextView" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/bronzeImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:srcCompat="@drawable/ore_clutter_bronze"
-        tools:layout_editor_absoluteY="11dp" />
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/silverImageView"
+        app:layout_constraintEnd_toEndOf="@+id/silverImageView"
+        app:srcCompat="@drawable/ore_clutter_bronze" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/silverImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:srcCompat="@drawable/ore_clutter_silver"
-        tools:layout_editor_absoluteY="32dp" />
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/goldImageView"
+        app:layout_constraintEnd_toEndOf="@+id/goldImageView"
+        app:srcCompat="@drawable/ore_clutter_silver" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/goldImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/goldTextView"
-        app:srcCompat="@drawable/ore_clutter_gold"
-        tools:layout_editor_absoluteY="53dp" />
+        app:srcCompat="@drawable/ore_clutter_gold" />
 </androidx.constraintlayout.widget.ConstraintLayout>
