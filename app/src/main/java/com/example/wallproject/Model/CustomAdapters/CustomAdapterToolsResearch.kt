@@ -44,14 +44,16 @@ class CustomAdapterToolsResearch(private val toolsList: List<Tool>) :
 
         }
 
+        //todo finish buttons
 
         holder.addButton.setOnClickListener {
 
             if(tool.isResearched){
                 GameSingleton.game.upgradeTool(tool.id)
             }else{
-                GameSingleton.game.researchTool(tool.id)
-                showUpgrade(holder)
+                if(GameSingleton.game.researchTool(tool.id)){
+                    showUpgrade(holder)
+                }
             }
 
             // Notify the adapter about the change in the dataset for the specific item

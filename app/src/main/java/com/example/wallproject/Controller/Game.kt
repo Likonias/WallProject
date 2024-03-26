@@ -70,7 +70,7 @@ class Game (private var context : Context){
 
     }
 
-    fun researchTool(toolId: Int) {
+    fun researchTool(toolId: Int) : Boolean {
 
         val toolCost = tools.getTool(toolId).researchCost.toDouble()
 
@@ -80,7 +80,11 @@ class Game (private var context : Context){
 
             tools.research(toolId)
 
+            return true
+
         }
+
+        return false
 
     }
 

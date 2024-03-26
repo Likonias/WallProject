@@ -70,4 +70,16 @@ class CurrencyWallet() {
         return currentGold >= cost.gold && currentSilver >= cost.silver && currentBronze >= cost.bronze
     }
 
+    fun getGold() : Int {
+        return currencies.getValue(CurrencyEnum.GOLD)
+    }
+
+    fun getSilver() : Int {
+        return currencies.getValue(CurrencyEnum.SILVER)
+    }
+
+    fun getBronze() : Int {
+        return currencies.getValue(CurrencyEnum.BRONZE)
+    }
+
 }
