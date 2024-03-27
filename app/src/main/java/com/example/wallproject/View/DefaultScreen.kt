@@ -69,6 +69,10 @@ class DefaultScreen : AppCompatActivity() {
             //todo finish popup logic
         }
 
+        //todo remove later!!!!!
+        GameSingleton.game.dungeons.discoverNext()
+
+
         startUpdatingData()
 
         populateTools()

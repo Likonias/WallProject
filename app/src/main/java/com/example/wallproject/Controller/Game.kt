@@ -57,6 +57,11 @@ class Game (private var context : Context){
         //loadGame()
     }
 
+    fun initializeHeroName(heroName : String) {
+        dungeons.initializePlayer(heroName)
+        account.heroName = heroName
+    }
+
     fun addTool(toolId : Int) {
 
         val toolCost = tools.getTool(toolId).cost

@@ -38,11 +38,14 @@ class Dungeons(@Transient private var context: Context) {
 //        enemies.add(Enemy(1, "Zombie Strong2", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
 //        dungeons.add(Dungeon(1, enemies, "Dun2", "Descript2"))
         //saveDungeons()
-
     }
 
     fun initializePlayer(playerName : String){
         player = Player(playerName)
+    }
+
+    fun selectCurrentDungeon(dungeonId : Int) {
+        currentDungeon = dungeonId
     }
 
     fun getEnemyFromDungeon(dungeonId : Int) : Enemy? {
