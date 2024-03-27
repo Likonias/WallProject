@@ -29,6 +29,7 @@
 
     <EditText
         android:id="@+id/searchThroughTextNumber"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -41,9 +42,12 @@
 
     <TextView
         android:id="@+id/currencyExplanationSimpleTextView"
-        android:layout_width="wrap_content"
+        style="@style/textSmall"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
         android:text="You can search through stones and with a little luck find something useful. Or you can buy them, like a coward.."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -139,6 +143,7 @@
 
     <Button
         android:id="@+id/searchButton"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Search!"
@@ -150,6 +155,7 @@
 
     <Spinner
         android:id="@+id/currencySpinner"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/buyTextNumber"
@@ -160,8 +166,10 @@
 
     <EditText
         android:id="@+id/buyTextNumber"
-        android:layout_width="100dp"
+        style="@style/textSmall"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="number"
@@ -170,6 +178,7 @@
 
     <Button
         android:id="@+id/buyButton"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Buy"
@@ -181,6 +190,7 @@
 
     <TextView
         android:id="@+id/finalPriceTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"

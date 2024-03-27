@@ -108,6 +108,12 @@ class Dungeons(@Transient private var context: Context) {
 
     }
 
+    fun getCurrentEnemyId() : Int {
+
+        return currentEnemy.id
+
+    }
+
     fun getDungeons() : MutableList<Dungeon> {
 
         return dungeons

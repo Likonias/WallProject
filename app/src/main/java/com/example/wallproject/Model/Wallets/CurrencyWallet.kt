@@ -82,4 +82,16 @@ class CurrencyWallet() {
         return currencies.getValue(CurrencyEnum.BRONZE)
     }
 
+    fun getGoldValue() : Int {
+        return CurrencyEnum.GOLD.value
+    }
+
+    fun getSilverValue() : Int {
+        return CurrencyEnum.SILVER.value
+    }
+
+    fun getBronzeValue() : Int {
+        return CurrencyEnum.BRONZE.value
+    }
+
 }

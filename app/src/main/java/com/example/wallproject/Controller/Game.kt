@@ -31,6 +31,7 @@ class Game (private var context : Context){
     //5 first items can be
     private val itemsForDiscoveryValue = 5
     private val firstDungeonThresholdShells = 20
+    private val unlockItemFromEnemyId = 5
     private var currentDungeonId : Int? = null
 
     private val db = Firebase.firestore
@@ -91,7 +92,7 @@ class Game (private var context : Context){
     fun dungeonPlayerAttack() : Double {
         var healthAfterAttack = dungeons.playerAttack()
 
-        if(healthAfterAttack <= 0){
+        if(healthAfterAttack <= 0 && dungeons.getCurrentEnemyId() == unlockItemFromEnemyId){
             discoverTool(dungeons.currentDungeon)
         }
 
@@ -137,7 +138,7 @@ class Game (private var context : Context){
         return false
     }
 
-    fun buyBronze(count : Int) : Boolean {
+    fun purchaseBronze(count : Int) : Boolean {
 
         var fullCost = count.toDouble() * CurrencyEnum.BRONZE.value
 
@@ -145,7 +146,7 @@ class Game (private var context : Context){
 
             wallet.buy(fullCost)
 
-            currencyWallet.buy(Currency(0, 0, count))
+            currencyWallet.deposit(Currency(0, 0, count))
 
             return true
 
@@ -155,7 +156,7 @@ class Game (private var context : Context){
 
     }
 
-    fun buySilver(count: Int) : Boolean {
+    fun purchaseSilver(count: Int) : Boolean {
 
         var fullCost = count.toDouble() * CurrencyEnum.SILVER.value
 
@@ -163,7 +164,7 @@ class Game (private var context : Context){
 
             wallet.buy(fullCost)
 
-            currencyWallet.buy(Currency(0,  count, 0))
+            currencyWallet.deposit(Currency(0,  count, 0))
 
             return true
 
@@ -173,7 +174,7 @@ class Game (private var context : Context){
 
     }
 
-    fun buyGold(count: Int) : Boolean {
+    fun purchaseGold(count: Int) : Boolean {
 
         var fullCost = count.toDouble() * CurrencyEnum.GOLD.value
 
@@ -181,7 +182,7 @@ class Game (private var context : Context){
 
             wallet.buy(fullCost)
 
-            currencyWallet.buy(Currency(count, 0, 0))
+            currencyWallet.deposit(Currency(count, 0, 0))
 
             return true
 
