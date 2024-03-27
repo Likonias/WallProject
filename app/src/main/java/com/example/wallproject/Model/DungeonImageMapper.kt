@@ -44,4 +44,12 @@ object DungeonImageMapper {
         4 to R.drawable.enemy_05_05
     )
 
+    val dungeonEnterance = mapOf(
+        0 to R.drawable.dungeon_01,
+        1 to R.drawable.dungeon_02,
+        2 to R.drawable.dungeon_03,
+        3 to R.drawable.dungeon_04,
+        4 to R.drawable.dungeon_05
+    )
+
 }
