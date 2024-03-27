@@ -21,6 +21,10 @@ class CustomAdapterDungeons(private val dungeonList: List<Dungeon>) :
         return CustomViewHolderDungeons(view)
     }
 
+    override fun getItemCount(): Int {
+        return dungeonList.size
+    }
+
     override fun onBindViewHolder(holder: CustomViewHolderDungeons, position: Int) {
         val dungeon = dungeonList[position]
 
