@@ -76,22 +76,9 @@
         app:layout_constraintEnd_toStartOf="@+id/wallHealthText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stonesSimpleText"
+        app:layout_constraintTop_toBottomOf="@+id/stonesImageView"
         app:layout_constraintVertical_bias="0.5" />
 
-
-    <TextView
-        android:id="@+id/stonesSimpleText"
-        style="@style/textSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/stones"
-        app:layout_constraintBottom_toTopOf="@+id/wallHealthSimpleText"
-        app:layout_constraintEnd_toStartOf="@+id/stonesText"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/stonesText"
@@ -100,10 +87,11 @@
         android:layout_height="21dp"
         android:layout_marginStart="8dp"
         android:text="@string/zero"
-        app:layout_constraintBottom_toBottomOf="@+id/stonesSimpleText"
+        app:layout_constraintBottom_toBottomOf="@+id/stonesImageView"
         app:layout_constraintEnd_toStartOf="@+id/profileButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/stonesSimpleText" />
+        app:layout_constraintStart_toEndOf="@+id/stonesImageView"
+        app:layout_constraintTop_toTopOf="@+id/stonesImageView" />
 
     <ImageView
         android:id="@+id/wallImageView"
@@ -156,5 +144,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/wallImageView"
         app:srcCompat="@drawable/dungeon_enterance" />
+
+    <ImageView
+        android:id="@+id/stonesImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/wallHealthSimpleText"
+        app:layout_constraintEnd_toStartOf="@+id/stonesText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/stones" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

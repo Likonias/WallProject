@@ -22,10 +22,10 @@ data class Player(
 
     fun levelUp(){
 
-        if (level % 10 == 0 )
+        if (level % 10 == 0 ) {
             updateBaseHealth()
+        }
 
-        updateAD()
         updateHealth()
 
         pointsToSpend = pointsToSpend + levelUpPoints
