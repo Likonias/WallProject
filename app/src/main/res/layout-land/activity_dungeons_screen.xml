@@ -63,6 +63,7 @@
 
     <TextView
         android:id="@+id/levelUpSimpleTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -75,6 +76,7 @@
 
     <TextView
         android:id="@+id/levelUpCostTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -85,6 +87,7 @@
 
     <Button
         android:id="@+id/levelUpButton"
+        style="@style/textSmall"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -97,6 +100,7 @@
 
     <Button
         android:id="@+id/addAdButton"
+        style="@style/textSmall"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -109,6 +113,7 @@
 
     <Button
         android:id="@+id/addApButton"
+        style="@style/textSmall"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -120,6 +125,7 @@
 
     <Button
         android:id="@+id/addArmorButton"
+        style="@style/textSmall"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -131,6 +137,7 @@
 
     <Button
         android:id="@+id/addMrButton"
+        style="@style/textSmall"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -142,6 +149,7 @@
 
     <Button
         android:id="@+id/addLuckButton"
+        style="@style/textSmall"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -153,6 +161,7 @@
 
     <TextView
         android:id="@+id/pointsToSpendSimpleTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -164,6 +173,7 @@
 
     <TextView
         android:id="@+id/pointsToSpendTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -172,6 +182,7 @@
 
     <TextView
         android:id="@+id/attackDamageSimpleTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -183,6 +194,7 @@
 
     <TextView
         android:id="@+id/abilityPowerSimpleTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -194,6 +206,7 @@
 
     <TextView
         android:id="@+id/armorSimpleTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -205,6 +218,7 @@
 
     <TextView
         android:id="@+id/magicResistSimpleTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -216,6 +230,7 @@
 
     <TextView
         android:id="@+id/luckSimpleTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -227,6 +242,7 @@
 
     <TextView
         android:id="@+id/attackDamageTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -235,6 +251,7 @@
 
     <TextView
         android:id="@+id/abilityPowerTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -243,6 +260,7 @@
 
     <TextView
         android:id="@+id/armorTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -251,6 +269,7 @@
 
     <TextView
         android:id="@+id/magicResistTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -259,6 +278,7 @@
 
     <TextView
         android:id="@+id/luckTextView"
+        style="@style/textSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"

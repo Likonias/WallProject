@@ -1,8 +1,6 @@
 package com.example.wallproject.Controller
 
 import android.content.Context
-import com.example.wallproject.Model.Dungeon.Characters.Attack
-import com.example.wallproject.Model.Dungeon.Characters.Defense
 import com.example.wallproject.Model.Dungeon.Characters.Enemy
 import com.example.wallproject.Model.Dungeon.Characters.Player
 import com.example.wallproject.Model.Dungeon.Dungeon
@@ -10,7 +8,6 @@ import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import java.io.File
 import java.io.InputStream
 
 class Dungeons(@Transient private var context: Context) {
@@ -22,7 +19,7 @@ class Dungeons(@Transient private var context: Context) {
     @Transient private val db = Firebase.firestore
     @Transient private val docRef = db.collection("base").document("dungeons")
 
-    private lateinit var player : Player
+    var player : Player = Player(null)
     private lateinit var currentEnemy : Enemy
 
     var currentDungeon : Int = 0
@@ -41,7 +38,7 @@ class Dungeons(@Transient private var context: Context) {
     }
 
     fun initializePlayer(playerName : String){
-        player = Player(playerName)
+        player.name = playerName
     }
 
     fun selectCurrentDungeon(dungeonId : Int) {

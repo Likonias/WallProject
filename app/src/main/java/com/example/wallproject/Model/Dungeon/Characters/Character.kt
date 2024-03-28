@@ -4,7 +4,7 @@ import kotlin.random.Random
 
 abstract class Character{
 
-    abstract var name : String
+    abstract var name : String?
     abstract var health : Double
     abstract var attack : Attack
     abstract var defense : Defense
