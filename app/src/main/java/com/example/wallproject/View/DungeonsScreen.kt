@@ -24,7 +24,7 @@ class DungeonsScreen : AppCompatActivity() {
         binding = ActivityDungeonsScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        customAdapterDungeons = CustomAdapterDungeons(this, GameSingleton.game.dungeons.getDungeons())
+        customAdapterDungeons = CustomAdapterDungeons(this, GameSingleton.game.dungeons.getDiscoveredDungeons())
 
         binding.recyclerViewDungeons.layoutManager = LinearLayoutManager(this)
 
