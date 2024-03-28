@@ -8,8 +8,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewDungeons"
-        android:layout_width="407dp"
-        android:layout_height="300dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,4 +27,245 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/playerImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dungeonsTextView"
+        app:srcCompat="@drawable/player" />
+
+    <TextView
+        android:id="@+id/playerNameTextView"
+        style="@style/textMiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Player"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerImageView" />
+
+    <ImageView
+        android:id="@+id/stonesImageViewDungeons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/playerImageView"
+        app:layout_constraintTop_toBottomOf="@+id/dungeonsTextView"
+        app:srcCompat="@drawable/stones" />
+
+    <TextView
+        android:id="@+id/stonesTextViewDungeons"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/stonesImageViewDungeons"
+        app:layout_constraintStart_toStartOf="@+id/stonesImageViewDungeons"
+        app:layout_constraintTop_toBottomOf="@+id/stonesImageViewDungeons" />
+
+    <TextView
+        android:id="@+id/levelUpSimpleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level up cost"
+        app:layout_constraintBottom_toTopOf="@+id/attackDamageSimpleTextView"
+        app:layout_constraintEnd_toStartOf="@+id/levelUpCostTextView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerNameTextView"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/levelUpCostTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/levelUpButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/levelUpSimpleTextView"
+        app:layout_constraintTop_toTopOf="@+id/levelUpSimpleTextView" />
+
+    <Button
+        android:id="@+id/levelUpButton"
+        android:layout_width="98dp"
+        android:layout_height="29dp"
+        android:padding="0dp"
+        android:text="Level Up"
+        app:layout_constraintBottom_toBottomOf="@+id/levelUpCostTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/levelUpCostTextView"
+        app:layout_constraintTop_toTopOf="@+id/levelUpCostTextView" />
+
+    <Button
+        android:id="@+id/addAdButton"
+        android:layout_width="98dp"
+        android:layout_height="29dp"
+        android:padding="0dp"
+        android:text="Add Point"
+        app:layout_constraintBottom_toBottomOf="@+id/attackDamageTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/attackDamageTextView"
+        app:layout_constraintTop_toTopOf="@+id/attackDamageTextView" />
+
+    <Button
+        android:id="@+id/addApButton"
+        android:layout_width="98dp"
+        android:layout_height="29dp"
+        android:padding="0dp"
+        android:text="Add Point"
+        app:layout_constraintBottom_toBottomOf="@+id/abilityPowerTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/abilityPowerTextView"
+        app:layout_constraintTop_toTopOf="@+id/abilityPowerTextView" />
+
+    <Button
+        android:id="@+id/addArmorButton"
+        android:layout_width="98dp"
+        android:layout_height="29dp"
+        android:padding="0dp"
+        android:text="Add Point"
+        app:layout_constraintBottom_toBottomOf="@+id/armorTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/armorTextView"
+        app:layout_constraintTop_toTopOf="@+id/armorTextView" />
+
+    <Button
+        android:id="@+id/addMrButton"
+        android:layout_width="98dp"
+        android:layout_height="29dp"
+        android:padding="0dp"
+        android:text="Add Point"
+        app:layout_constraintBottom_toBottomOf="@+id/magicResistTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/magicResistTextView"
+        app:layout_constraintTop_toTopOf="@+id/magicResistTextView" />
+
+    <Button
+        android:id="@+id/addLuckButton"
+        android:layout_width="98dp"
+        android:layout_height="29dp"
+        android:padding="0dp"
+        android:text="Add Point"
+        app:layout_constraintBottom_toBottomOf="@+id/luckTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/luckTextView"
+        app:layout_constraintTop_toTopOf="@+id/luckTextView" />
+
+    <TextView
+        android:id="@+id/pointsToSpendSimpleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Points to spend"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewDungeons"
+        app:layout_constraintEnd_toEndOf="@+id/luckSimpleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/luckSimpleTextView"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/pointsToSpendTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/luckTextView"
+        app:layout_constraintTop_toTopOf="@+id/pointsToSpendSimpleTextView" />
+
+    <TextView
+        android:id="@+id/attackDamageSimpleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Attack Damage"
+        app:layout_constraintBottom_toTopOf="@+id/abilityPowerSimpleTextView"
+        app:layout_constraintEnd_toEndOf="@+id/levelUpSimpleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/levelUpSimpleTextView"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/abilityPowerSimpleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ability Power"
+        app:layout_constraintBottom_toTopOf="@+id/armorSimpleTextView"
+        app:layout_constraintEnd_toEndOf="@+id/attackDamageSimpleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/attackDamageSimpleTextView"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/armorSimpleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Armor"
+        app:layout_constraintBottom_toTopOf="@+id/magicResistSimpleTextView"
+        app:layout_constraintEnd_toEndOf="@+id/abilityPowerSimpleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/abilityPowerSimpleTextView"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/magicResistSimpleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Magic Resist"
+        app:layout_constraintBottom_toTopOf="@+id/luckSimpleTextView"
+        app:layout_constraintEnd_toEndOf="@+id/armorSimpleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/armorSimpleTextView"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/luckSimpleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Luck"
+        app:layout_constraintBottom_toTopOf="@+id/pointsToSpendSimpleTextView"
+        app:layout_constraintEnd_toEndOf="@+id/magicResistSimpleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/magicResistSimpleTextView"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/attackDamageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/levelUpCostTextView"
+        app:layout_constraintTop_toTopOf="@+id/attackDamageSimpleTextView" />
+
+    <TextView
+        android:id="@+id/abilityPowerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/attackDamageTextView"
+        app:layout_constraintTop_toTopOf="@+id/abilityPowerSimpleTextView" />
+
+    <TextView
+        android:id="@+id/armorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/abilityPowerTextView"
+        app:layout_constraintTop_toTopOf="@+id/armorSimpleTextView" />
+
+    <TextView
+        android:id="@+id/magicResistTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/armorTextView"
+        app:layout_constraintTop_toTopOf="@+id/magicResistSimpleTextView" />
+
+    <TextView
+        android:id="@+id/luckTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/magicResistTextView"
+        app:layout_constraintTop_toTopOf="@+id/luckSimpleTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

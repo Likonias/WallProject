@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/spsText"
         style="@style/textSmall"
-        android:layout_width="222sp"
+        android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:text="@string/zero"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,26 +45,27 @@
     <TextView
         android:id="@+id/wallHealthText"
         style="@style/textSmall"
-        android:layout_width="222sp"
+        android:layout_width="150sp"
         android:layout_height="wrap_content"
         android:text="@string/zero"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spsText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/wallHealthSimpleText"
+        app:layout_constraintStart_toStartOf="@+id/spsText"
         app:layout_constraintTop_toTopOf="@+id/wallHealthSimpleText" />
 
     <TextView
         android:id="@+id/villageNameText"
-        style="@style/textSmall"
+        style="@style/textMiddle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Village"
         app:layout_constraintBottom_toTopOf="@+id/stonesText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.55" />
 
     <TextView
         android:id="@+id/wallHealthSimpleText"
@@ -83,8 +84,8 @@
     <TextView
         android:id="@+id/stonesText"
         style="@style/textSmall"
-        android:layout_width="196dp"
-        android:layout_height="21dp"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/zero"
         app:layout_constraintBottom_toBottomOf="@+id/stonesImageView"
@@ -149,6 +150,7 @@
         android:id="@+id/stonesImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         app:layout_constraintBottom_toTopOf="@+id/wallHealthSimpleText"
         app:layout_constraintEnd_toStartOf="@+id/stonesText"
         app:layout_constraintHorizontal_bias="0.5"
