@@ -31,6 +31,10 @@ class DungeonsScreen : AppCompatActivity() {
         // Attach the adapter to the RecyclerView
         binding.recyclerViewDungeons.adapter = customAdapterDungeons
 
+        if(GameSingleton.game.account.heroName == null){
+            showPopup("Enter hero name: ")
+        }
+
     }
 
     private fun showPopup(prompt : String) {
