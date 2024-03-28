@@ -9,7 +9,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewDungeons"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -29,36 +30,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
 
-    <ImageView
-        android:id="@+id/playerImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/playerNameTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dungeonsTextView"
-        app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/player" />
-
     <TextView
         android:id="@+id/playerNameTextView"
         style="@style/textMiddle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="Player"
-        app:layout_constraintBottom_toTopOf="@+id/levelUpCostTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerImageView"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/dungeonsTextView" />
 
     <ImageView
         android:id="@+id/stonesImageViewDungeons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/playerImageView"
+        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintStart_toEndOf="@+id/dungeonsTextView"
         app:layout_constraintTop_toBottomOf="@+id/dungeonsTextView"
         app:srcCompat="@drawable/stones" />
 
@@ -77,14 +65,13 @@
         android:id="@+id/levelUpSimpleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:text="Level up cost"
         app:layout_constraintBottom_toTopOf="@+id/attackDamageSimpleTextView"
         app:layout_constraintEnd_toStartOf="@+id/levelUpCostTextView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerImageView"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/playerNameTextView" />
 
     <TextView
         android:id="@+id/levelUpCostTextView"
@@ -168,7 +155,7 @@
         android:id="@+id/pointsToSpendSimpleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Points to spend"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewDungeons"
         app:layout_constraintEnd_toEndOf="@+id/luckSimpleTextView"
@@ -187,7 +174,7 @@
         android:id="@+id/attackDamageSimpleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Attack Damage"
         app:layout_constraintBottom_toTopOf="@+id/abilityPowerSimpleTextView"
         app:layout_constraintEnd_toEndOf="@+id/levelUpSimpleTextView"
@@ -198,7 +185,7 @@
         android:id="@+id/abilityPowerSimpleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Ability Power"
         app:layout_constraintBottom_toTopOf="@+id/armorSimpleTextView"
         app:layout_constraintEnd_toEndOf="@+id/attackDamageSimpleTextView"
@@ -209,7 +196,7 @@
         android:id="@+id/armorSimpleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Armor"
         app:layout_constraintBottom_toTopOf="@+id/magicResistSimpleTextView"
         app:layout_constraintEnd_toEndOf="@+id/abilityPowerSimpleTextView"
@@ -220,7 +207,7 @@
         android:id="@+id/magicResistSimpleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Magic Resist"
         app:layout_constraintBottom_toTopOf="@+id/luckSimpleTextView"
         app:layout_constraintEnd_toEndOf="@+id/armorSimpleTextView"
@@ -231,7 +218,7 @@
         android:id="@+id/luckSimpleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Luck"
         app:layout_constraintBottom_toTopOf="@+id/pointsToSpendSimpleTextView"
         app:layout_constraintEnd_toEndOf="@+id/magicResistSimpleTextView"
