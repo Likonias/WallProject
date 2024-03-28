@@ -117,9 +117,17 @@ class Dungeons(@Transient private var context: Context) {
 
     }
 
-    fun getDungeons() : MutableList<Dungeon> {
+    fun getDiscoveredDungeons() : MutableList<Dungeon> {
 
-        return dungeons
+        var discoveredDungeons : MutableList<Dungeon> = mutableListOf()
+
+        for (dungeon in dungeons) {
+            if(dungeon.isDiscovered){
+                discoveredDungeons.add(dungeon)
+            }
+        }
+
+        return discoveredDungeons
 
     }
 
