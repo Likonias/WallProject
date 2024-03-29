@@ -42,7 +42,7 @@ data class Player(
 
     }
 
-    private fun canUpdate() : Boolean {
+    fun canUpdate() : Boolean {
         return pointsToSpend != 0
     }
 
@@ -79,6 +79,14 @@ data class Player(
     fun updateLuck(){
 
         attack.luck++
+
+    }
+
+    fun usePoint() {
+
+        if (canUpdate()) {
+            pointsToSpend--
+        }
 
     }
 

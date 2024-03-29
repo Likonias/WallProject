@@ -50,6 +50,7 @@ class Tools (@Transient private var context: Context) {
         tools.get(7).addTool()
         tools.get(8).addTool()
         tools.get(9).addTool()
+        tools.get(9).addTool()
 
         //saveTools()
     }
@@ -125,7 +126,17 @@ class Tools (@Transient private var context: Context) {
 
     fun getSPS() : Double {
 
-        val roundedNumber = String.format("%.2f", getMiningPower() / getTime()).toDouble()
+        var sps = 0.0
+
+        for (tool in tools) {
+
+            if(tool.count > 0) {
+                sps += tool.count * tool.miningPower / tool.timeToMine
+            }
+
+        }
+
+        val roundedNumber = String.format("%.2f", sps).toDouble()
 
         return roundedNumber
 
@@ -164,30 +175,6 @@ class Tools (@Transient private var context: Context) {
 
     }
 
-    private fun getMiningPower() : Double {
 
-        var miningPower = 0.0
-
-        tools.forEach {
-            tool -> miningPower += tool.miningPower * tool.count
-        }
-
-        return miningPower
-
-    }
-
-    private fun getTime() : Double {
-
-        var time = 0.0
-
-        tools.forEach { tool ->
-            if(tool.count > 0){
-                time += tool.timeToMine
-            }
-        }
-
-        return time
-
-    }
 
 }

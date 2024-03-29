@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,6 +44,62 @@ class DungeonsScreen : AppCompatActivity() {
 
         binding.levelUpButton.setOnClickListener {
 
+            if (!GameSingleton.game.levelUpPlayer()) {
+
+                Toast.makeText(applicationContext, "Not enough stone!", Toast.LENGTH_SHORT).show()
+
+            }
+
+        }
+
+        binding.addAdButton.setOnClickListener {
+
+            if(!GameSingleton.game.updatePlayerAd()) {
+
+                Toast.makeText(applicationContext, "Not enough upgrade ponts!", Toast.LENGTH_SHORT).show()
+
+            }
+
+        }
+
+        binding.addApButton.setOnClickListener {
+
+            if(!GameSingleton.game.updatePlayerAp()) {
+
+                Toast.makeText(applicationContext, "Not enough upgrade ponts!", Toast.LENGTH_SHORT).show()
+
+            }
+
+        }
+
+        binding.addArmorButton.setOnClickListener {
+
+            if(!GameSingleton.game.updatePlayerArmor()) {
+
+                Toast.makeText(applicationContext, "Not enough upgrade ponts!", Toast.LENGTH_SHORT).show()
+
+            }
+
+        }
+
+        binding.addMrButton.setOnClickListener {
+
+            if(!GameSingleton.game.updatePlayerMagicResist()) {
+
+                Toast.makeText(applicationContext, "Not enough upgrade ponts!", Toast.LENGTH_SHORT).show()
+
+            }
+
+        }
+
+        binding.addLuckButton.setOnClickListener {
+
+            if(!GameSingleton.game.updatePlayerLuck()) {
+
+                Toast.makeText(applicationContext, "Not enough upgrade ponts!", Toast.LENGTH_SHORT).show()
+
+            }
+
         }
 
 
@@ -70,6 +127,8 @@ class DungeonsScreen : AppCompatActivity() {
                 binding.armorTextView.text = player.defense.armor.toString()
 
                 binding.magicResistTextView.text = player.defense.magicResist.toString()
+
+                binding.luckTextView.text = player.attack.luck.toString()
 
                 binding.pointsToSpendTextView.text = player.pointsToSpend.toString()
 

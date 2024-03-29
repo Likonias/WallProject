@@ -72,6 +72,98 @@ class Game (private var context : Context){
 
             dungeons.player.levelUp()
 
+            return true
+
+        }
+
+        return false
+
+    }
+
+    fun updatePlayerAd() : Boolean {
+
+        var player = dungeons.player
+
+        if(player.canUpdate()){
+
+            player.updateAD()
+
+            player.usePoint()
+
+            return true
+
+        }
+
+        return false
+
+    }
+
+    fun updatePlayerAp() : Boolean {
+
+        var player = dungeons.player
+
+        if(player.canUpdate()){
+
+            player.updateAP()
+
+            player.usePoint()
+
+            return true
+
+        }
+
+        return false
+
+    }
+
+    fun updatePlayerArmor() : Boolean {
+
+        var player = dungeons.player
+
+        if(player.canUpdate()){
+
+            player.updateArmor()
+
+            player.usePoint()
+
+            return true
+
+        }
+
+        return false
+
+    }
+
+    fun updatePlayerMagicResist() : Boolean {
+
+        var player = dungeons.player
+
+        if(player.canUpdate()){
+
+            player.updateMagicResist()
+
+            player.usePoint()
+
+            return true
+
+        }
+
+        return false
+
+    }
+
+    fun updatePlayerLuck() : Boolean {
+
+        var player = dungeons.player
+
+        if(player.canUpdate()){
+
+            player.updateLuck()
+
+            player.usePoint()
+
+            return true
+
         }
 
         return false
