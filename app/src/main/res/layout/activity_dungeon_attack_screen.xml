@@ -6,4 +6,78 @@
     android:layout_height="match_parent"
     tools:context=".View.DungeonAttackScreen">
 
+    <ImageView
+        android:id="@+id/enemyImageViewAttack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/playerImageViewAttack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playerImageViewAttack"
+        app:layout_constraintTop_toTopOf="@+id/playerImageViewAttack"
+        app:srcCompat="@drawable/enemy_01_01" />
+
+    <Button
+        android:id="@+id/attackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="Attack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/playerProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/attackButton"
+        app:layout_constraintEnd_toEndOf="@+id/playerImageViewAttack"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/playerImageViewAttack"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65999997" />
+
+    <ImageView
+        android:id="@+id/playerImageViewAttack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/playerProgressBar"
+        app:layout_constraintEnd_toStartOf="@+id/enemyImageViewAttack"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/player" />
+
+    <ProgressBar
+        android:id="@+id/enemyProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/playerProgressBar"
+        app:layout_constraintEnd_toEndOf="@+id/enemyImageViewAttack"
+        app:layout_constraintStart_toStartOf="@+id/enemyImageViewAttack"
+        app:layout_constraintTop_toTopOf="@+id/playerProgressBar" />
+
+    <ImageView
+        android:id="@+id/enemyAttackImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/playerImageViewAttack"
+        app:layout_constraintEnd_toStartOf="@+id/enemyImageViewAttack"
+        app:layout_constraintStart_toStartOf="@+id/playerImageViewAttack"
+        app:layout_constraintTop_toTopOf="@+id/playerImageViewAttack"
+        app:srcCompat="@drawable/attack" />
+
+    <ImageView
+        android:id="@+id/playerAttackImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/enemyImageViewAttack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/enemyImageViewAttack"
+        app:layout_constraintTop_toTopOf="@+id/enemyImageViewAttack"
+        app:srcCompat="@drawable/attack" />
 </androidx.constraintlayout.widget.ConstraintLayout>

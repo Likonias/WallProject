@@ -3,10 +3,19 @@ package com.example.wallproject.View
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.wallproject.R
+import com.example.wallproject.databinding.ActivityDungeonAttackScreenBinding
+import com.example.wallproject.databinding.ActivityDungeonsScreenBinding
 
 class DungeonAttackScreen : AppCompatActivity() {
+
+    private lateinit var binding: ActivityDungeonAttackScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dungeon_attack_screen)
+        binding = ActivityDungeonAttackScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+
     }
 }
