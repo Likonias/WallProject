@@ -41,6 +41,11 @@ class DungeonsScreen : AppCompatActivity() {
             showPopup("Enter hero name: ")
         }
 
+        binding.levelUpButton.setOnClickListener {
+
+        }
+
+
         startUpdatingData()
 
     }

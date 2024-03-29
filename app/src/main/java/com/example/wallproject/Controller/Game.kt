@@ -62,6 +62,22 @@ class Game (private var context : Context){
         account.heroName = heroName
     }
 
+    fun levelUpPlayer() : Boolean {
+
+        val levelUpCost = dungeons.player.levelUpCost
+
+        if(wallet.isEnoughBalance(levelUpCost.toDouble())){
+
+            wallet.buy(levelUpCost.toDouble())
+
+            dungeons.player.levelUp()
+
+        }
+
+        return false
+
+    }
+
     fun addTool(toolId : Int) {
 
         val toolCost = tools.getTool(toolId).cost
