@@ -12,6 +12,10 @@ data class Player(
     @Transient private val baseLevelUpCost = 1000
     @Transient private val levelUpCostMultiplier = 5
 
+    init {
+        currentHealth = health
+    }
+
     private var baseHealth = health
 
     var level : Int = 1

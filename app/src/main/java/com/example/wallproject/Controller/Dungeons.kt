@@ -1,6 +1,8 @@
 package com.example.wallproject.Controller
 
 import android.content.Context
+import com.example.wallproject.Model.Dungeon.Characters.Attack
+import com.example.wallproject.Model.Dungeon.Characters.Defense
 import com.example.wallproject.Model.Dungeon.Characters.Enemy
 import com.example.wallproject.Model.Dungeon.Characters.Player
 import com.example.wallproject.Model.Dungeon.Dungeon
@@ -20,21 +22,21 @@ class Dungeons(@Transient private var context: Context) {
     @Transient private val docRef = db.collection("base").document("dungeons")
 
     var player : Player = Player(null)
-    private lateinit var currentEnemy : Enemy
+    lateinit var currentEnemy : Enemy
 
-    var currentDungeon : Int = 0
+    lateinit var currentDungeon : Dungeon
 
     init {
         //todo make sure to fix this
-        loadDungeons()
-//        var enemies : MutableList<Enemy> = mutableListOf()
-//        enemies.add(Enemy(0, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
-//        enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
-//        dungeons.add(Dungeon(0, enemies, "Name", "Descript"))
-//        enemies.add(Enemy(0, "Zombie1", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
-//        enemies.add(Enemy(1, "Zombie Strong2", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
-//        dungeons.add(Dungeon(1, enemies, "Dun2", "Descript2"))
-        //saveDungeons()
+        //loadDungeons()
+        var enemies : MutableList<Enemy> = mutableListOf()
+        enemies.add(Enemy(0, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        dungeons.add(Dungeon(0, enemies, "Name", "Descript"))
+        enemies.add(Enemy(0, "Zombie1", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(1, "Zombie Strong2", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        dungeons.add(Dungeon(1, enemies, "Dun2", "Descript2"))
+        saveDungeons()
     }
 
     fun initializePlayer(playerName : String){
@@ -42,22 +44,10 @@ class Dungeons(@Transient private var context: Context) {
     }
 
     fun selectCurrentDungeon(dungeonId : Int) {
-        currentDungeon = dungeonId
-    }
 
-    fun getEnemyFromDungeon(dungeonId : Int) : Enemy? {
+        currentDungeon = dungeons.get(dungeonId)
 
-        currentDungeon = dungeonId
-
-        return dungeons.get(dungeonId).getCurrentEnemy()
-
-    }
-
-    fun attackEnemyFromDungeon(dungeonId: Int) {
-
-        currentDungeon = dungeonId
-
-        currentEnemy = getEnemyFromDungeon(dungeonId)!!
+        currentEnemy = dungeons.get(dungeonId).getCurrentEnemy()!!
 
     }
 
@@ -86,6 +76,8 @@ class Dungeons(@Transient private var context: Context) {
     }
 
     fun discoverNext() {
+
+        //todo redo
 
         dungeons.forEach { dungeon ->
             if(!dungeon.isDiscovered){

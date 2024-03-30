@@ -32,7 +32,6 @@ class Game (private var context : Context){
     private val itemsForDiscoveryValue = 5
     private val firstDungeonThresholdShells = 20
     private val unlockItemFromEnemyId = 5
-    private var currentDungeonId : Int? = null
 
     private val db = Firebase.firestore
     private val docRef = db.collection("userData")
@@ -206,7 +205,7 @@ class Game (private var context : Context){
         var healthAfterAttack = dungeons.playerAttack()
 
         if(healthAfterAttack <= 0 && dungeons.getCurrentEnemyId() == unlockItemFromEnemyId){
-            discoverTool(dungeons.currentDungeon)
+            discoverTool(dungeons.currentDungeon.id)
         }
 
         return healthAfterAttack

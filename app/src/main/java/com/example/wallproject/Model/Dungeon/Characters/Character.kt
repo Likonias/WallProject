@@ -5,17 +5,21 @@ import kotlin.random.Random
 abstract class Character{
 
     abstract var name : String?
-    abstract var health : Double
+    abstract var health: Double
     abstract var attack : Attack
     abstract var defense : Defense
 
-    var currentHealth = health
+    var currentHealth = 0.0
 
     //transient is exlucing values of being serialized by the GSON class for JSON
     @Transient private val defenseThreshold = 0.8
     @Transient private val criticalMultiplier = 1.5
     @Transient private val hundred = 100
     @Transient private val zero = 0
+
+    init {
+        currentHealth = health
+    }
 
     fun isDead(): Boolean {
         return (currentHealth <= zero)

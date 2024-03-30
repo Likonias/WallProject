@@ -7,5 +7,8 @@ data class Enemy(val id : Int,
                  override var defense: Defense
 ) : Character(){
 
+    init {
+        currentHealth = health
+    }
 
 }
