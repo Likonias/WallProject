@@ -12,14 +12,10 @@ abstract class Character{
     var currentHealth = 0.0
 
     //transient is exlucing values of being serialized by the GSON class for JSON
-    @Transient private val defenseThreshold = 0.8
+    @Transient private val defenseThreshold = 80.0
     @Transient private val criticalMultiplier = 1.5
     @Transient private val hundred = 100
     @Transient private val zero = 0
-
-    init {
-        currentHealth = health
-    }
 
     fun isDead(): Boolean {
         return (currentHealth <= zero)
@@ -48,9 +44,9 @@ abstract class Character{
 
     private fun calculateDefensePercentage(character: Character) : Defense {
 
-        var resultArmor = ruleOfThree(character.health, hundred.toDouble(), character.defense.armor.toDouble()) / hundred
+        var resultArmor = ruleOfThree(character.health, hundred.toDouble(), character.defense.armor.toDouble())
 
-        var resultMagicResist = ruleOfThree(character.health, hundred.toDouble(), character.defense.magicResist.toDouble()) / hundred
+        var resultMagicResist = ruleOfThree(character.health, hundred.toDouble(), character.defense.magicResist.toDouble())
 
         if(resultArmor > defenseThreshold)
             resultArmor = defenseThreshold
@@ -72,9 +68,9 @@ abstract class Character{
 
         var resultAttack : Attack = Attack(zero, zero, zero)
 
-        resultAttack.attackDmg = this.attack.attackDmg * resultDefense.armor
+        resultAttack.attackDmg = this.attack.attackDmg - this.attack.attackDmg * (resultDefense.armor / hundred)
 
-        resultAttack.abilityPower = this.attack.abilityPower * resultDefense.magicResist
+        resultAttack.abilityPower = this.attack.abilityPower - this.attack.abilityPower * (resultDefense.magicResist / hundred)
 
         resultAttack.luck = calculateLuckPercentage().toInt()
 

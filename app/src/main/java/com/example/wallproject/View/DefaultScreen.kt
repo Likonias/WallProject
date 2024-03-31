@@ -88,7 +88,7 @@ class DefaultScreen : AppCompatActivity() {
     override fun onBackPressed() {}
 
     private fun startUpdatingData() {
-        //todo make it update the rest of the data, that needs to be updated the same way
+
         GlobalScope.launch(Dispatchers.Main) {
             while (true) {
 

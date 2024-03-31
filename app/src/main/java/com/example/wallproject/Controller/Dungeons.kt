@@ -30,13 +30,13 @@ class Dungeons(@Transient private var context: Context) {
         //todo make sure to fix this
         //loadDungeons()
         var enemies : MutableList<Enemy> = mutableListOf()
-        enemies.add(Enemy(0, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(0, "Zombie", 100.0, Attack(20, 1, 1), Defense(10, 15) ))
         enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
         dungeons.add(Dungeon(0, enemies, "Name", "Descript"))
         enemies.add(Enemy(0, "Zombie1", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
         enemies.add(Enemy(1, "Zombie Strong2", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
         dungeons.add(Dungeon(1, enemies, "Dun2", "Descript2"))
-        saveDungeons()
+//        saveDungeons()
     }
 
     fun initializePlayer(playerName : String){
@@ -55,8 +55,11 @@ class Dungeons(@Transient private var context: Context) {
 
         var healthAfterAttack = player.attack(currentEnemy)
 
-        if (currentEnemy.isDead())
+        if (currentEnemy.isDead()){
             player.resetHealth()
+            healthAfterAttack = 0.0
+        }
+
 
         return healthAfterAttack
 
@@ -69,6 +72,7 @@ class Dungeons(@Transient private var context: Context) {
         if(player.isDead()) {
             player.resetHealth()
             currentEnemy.resetHealth()
+            healthAfterAttack = 0.0
         }
 
         return healthAfterAttack
