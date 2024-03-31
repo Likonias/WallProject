@@ -8,11 +8,16 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import com.example.wallproject.Controller.GoogleSignIn
 import com.example.wallproject.Model.GameSingleton
 import com.example.wallproject.R
 import com.example.wallproject.databinding.ActivityProfileScreenBinding
 import com.google.android.gms.common.SignInButton
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ProfileScreen : AppCompatActivity() {
 
@@ -60,6 +65,37 @@ class ProfileScreen : AppCompatActivity() {
             )
         }
 
+        startUpdatingData()
+
+    }
+
+    private fun startUpdatingData() {
+
+        GlobalScope.launch(Dispatchers.Main) {
+            while (true) {
+
+                binding.villageNameTextViewProfile.text = GameSingleton.game.account.villageName
+
+                binding.stonesTextViewProfile.text = GameSingleton.game.wallet.getBalanceInt().toString()
+
+                binding.bronzeTextViewProfile.text = GameSingleton.game.currencyWallet.getBronze().toString()
+                binding.silverTextViewProfile.text = GameSingleton.game.currencyWallet.getSilver().toString()
+                binding.goldTextViewProfile.text = GameSingleton.game.currencyWallet.getGold().toString()
+
+                binding.playerNameTextViewProfile.text = GameSingleton.game.account.heroName
+
+                if (GameSingleton.game.account.heroName != null) {
+                    binding.playerLevelTextViewProfile.text = GameSingleton.game.dungeons.player.level.toString()
+                }else{
+                    binding.playerLevelTextViewProfile.text = ""
+                }
+
+                binding.shellsTextViewProfile.text = GameSingleton.game.wall.shells.toString()
+
+                // Delay for 1 second
+                delay(1000)
+            }
+        }
     }
 
     private fun setVisibilityOfButtons() {
