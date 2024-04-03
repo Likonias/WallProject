@@ -41,6 +41,10 @@ class Game (private var context : Context){
 
         while (true) {
 
+            if(wall.gameOver){
+                break
+            }
+
             delay(1000)
 
             var sps = tools.getSPS()

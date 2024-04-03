@@ -10,6 +10,7 @@ class Wall(@Transient private val onWallBreak: () -> Unit) {
 
     var health : Double = healthBase
     var shells : Int = 100
+    var gameOver = false
 
     fun tickWall(stonesPerSecond : Double) : Int {
 
@@ -29,6 +30,10 @@ class Wall(@Transient private val onWallBreak: () -> Unit) {
     private fun breakShell(){
 
         health = healthUpdate()
+
+        if(shells == 0){
+            gameOver = true
+        }
 
         shells--
 

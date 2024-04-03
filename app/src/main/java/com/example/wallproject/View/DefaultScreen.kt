@@ -85,6 +85,10 @@ class DefaultScreen : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             while (true) {
 
+                if(game.wall.gameOver){
+                    showGameOverPopup("You have finished the game! Do you want to start over or continue into the infinity mode?")
+                }
+
                 binding.spsText.text = game.tools.getSPS().toString()
 
                 binding.wallHealthText.text = game.wall.getCurrentHealth().toString()
@@ -161,6 +165,32 @@ class DefaultScreen : AppCompatActivity() {
         }
 
         builder.setNegativeButton("Cancel") { dialog, which ->
+            dialog.cancel()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun showGameOverPopup(prompt : String) {
+        val inflater = layoutInflater
+        val dialogView = inflater.inflate(R.layout.dialog_custom, null)
+
+        dialogView.findViewById<TextView>(R.id.textPrompt).text = prompt
+
+        val editTextInput = dialogView.findViewById<EditText>(R.id.editTextInput)
+
+        editTextInput.visibility = View.INVISIBLE
+
+        val builder = AlertDialog.Builder(this)
+        builder.setView(dialogView)
+
+        builder.setPositiveButton("Start Over") { dialog, which ->
+            game = Game(applicationContext)
+        }
+
+        builder.setNegativeButton("Infinity!!!") { dialog, which ->
+            game.wall.gameOver = false
             dialog.cancel()
         }
 
