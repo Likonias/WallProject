@@ -44,8 +44,6 @@ class CustomAdapterToolsResearch(private val toolsList: List<Tool>) :
 
         }
 
-        //todo finish buttons
-
         holder.addButton.setOnClickListener {
 
             if(tool.isResearched){

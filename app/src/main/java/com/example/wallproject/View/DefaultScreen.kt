@@ -35,8 +35,6 @@ class DefaultScreen : AppCompatActivity() {
         binding = ActivityDefaultScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //todo finish coments
-
         //todo finish setting up game, loading or saving
 
         //using application context for some reason
@@ -66,12 +64,7 @@ class DefaultScreen : AppCompatActivity() {
 
         if(game.account.villageName == null){
             showPopup("Enter village name: ")
-            //todo finish popup logic
         }
-
-        //todo remove later!!!!!
-        GameSingleton.game.dungeons.discoverNext()
-
 
         startUpdatingData()
 

@@ -2,7 +2,7 @@ package com.example.wallproject.Model.Wallets
 
 class Wallet() {
 
-    var balance : Double = 0.0
+    var balance : Double = 1.0
 
     fun buy(cost : Double) : Boolean {
 

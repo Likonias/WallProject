@@ -30,13 +30,42 @@ class Dungeons(@Transient private var context: Context) {
         //todo make sure to fix this
         //loadDungeons()
         var enemies : MutableList<Enemy> = mutableListOf()
-        enemies.add(Enemy(0, "Zombie", 100.0, Attack(20, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(0, "Joe", 100.0, Attack(10, 20, 1), Defense(5, 5) ))
+        enemies.add(Enemy(1, "Stevie", 280.0, Attack(25, 10, 1), Defense(10, 5) ))
+        enemies.add(Enemy(2, "Lucky Sword Jimmy", 600.0, Attack(20, 20, 100), Defense(10, 10) ))
+        enemies.add(Enemy(3, "Right Mythos Handler", 1800.0, Attack(50, 5, 10), Defense(10, 15) ))
+        enemies.add(Enemy(4, "King Pirate", 2999.0, Attack(90, 45, 28), Defense(40, 60) ))
+        dungeons.add(Dungeon(0, enemies, "Suspicious Dungeon", "Every shaddow inside of the mysterious hole speaks in some weird language, there seems to be something truly suspicious about it."))
+        enemies = mutableListOf()
+        enemies.add(Enemy(0, "Zombie", 2000.0, Attack(1, 1, 1), Defense(10, 15) ))
         enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
-        dungeons.add(Dungeon(0, enemies, "Name", "Descript"))
-        enemies.add(Enemy(0, "Zombie1", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
-        enemies.add(Enemy(1, "Zombie Strong2", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
-        dungeons.add(Dungeon(1, enemies, "Dun2", "Descript2"))
-//        saveDungeons()
+        enemies.add(Enemy(2, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(3, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(4, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        dungeons.add(Dungeon(1, enemies, "Explosive Dungeon", "Be careful not to trip on the amount of all the dangerous things hidden inside."))
+        enemies = mutableListOf()
+        enemies.add(Enemy(0, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(2, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(3, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(4, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        dungeons.add(Dungeon(2, enemies, "Undead Dungeon", "You can smell the rotting flesh emitting from the inside. It is truly disguising."))
+        enemies = mutableListOf()
+        enemies.add(Enemy(0, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(2, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(3, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(4, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        dungeons.add(Dungeon(3, enemies, "Hell???", "It doesn't feel right. This feels wrong.."))
+        enemies = mutableListOf()
+        enemies.add(Enemy(0, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(1, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(2, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(3, "Zombie Strong", 280.0, Attack(1, 1, 1), Defense(10, 15) ))
+        enemies.add(Enemy(4, "Zombie", 100.0, Attack(1, 1, 1), Defense(10, 15) ))
+        dungeons.add(Dungeon(4, enemies, "Truly Scary Dungeoooooon", "Beware of the spooks lurking inside. They may not be scary, but they will still be able to beat your sorry self."))
+
+        //        saveDungeons()
     }
 
     fun initializePlayer(playerName : String){
@@ -81,12 +110,13 @@ class Dungeons(@Transient private var context: Context) {
 
     fun discoverNext() {
 
-        //todo redo
-
-        dungeons.forEach { dungeon ->
-            if(!dungeon.isDiscovered){
-                dungeon.isDiscovered = true
-                return
+        var index = 0
+        while (index < dungeons.size) {
+            if (!dungeons[index].isDiscovered) {
+                dungeons[index].isDiscovered = true
+                break
+            } else {
+                index++
             }
         }
 

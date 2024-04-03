@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
@@ -41,7 +42,7 @@ class ProfileScreen : AppCompatActivity() {
                     setVisibilityOfButtons()
                 },
                 onFailure = {
-                    //todo add a toast
+                    Toast.makeText(applicationContext, "Failed Login", Toast.LENGTH_SHORT).show()
                 }
             )
         }
@@ -57,7 +58,7 @@ class ProfileScreen : AppCompatActivity() {
                 onSuccess = {
                     GameSingleton.game.account.googleId = null
                     setVisibilityOfButtons()
-                    //todo add a toast? maybe delete from account or, ask if they want to keep their game instance
+                    Toast.makeText(applicationContext, "You have successfully logged out!", Toast.LENGTH_SHORT).show()
                 },
                 onFailure = {
                     // Sign-out failed, handle the failure scenario
