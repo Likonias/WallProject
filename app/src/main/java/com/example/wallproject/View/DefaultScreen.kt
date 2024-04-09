@@ -1,6 +1,8 @@
 package com.example.wallproject.View
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +13,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.example.wallproject.Controller.Game
 import com.example.wallproject.Model.GameSingleton
@@ -27,8 +30,6 @@ class DefaultScreen : AppCompatActivity() {
 
     private lateinit var binding: ActivityDefaultScreenBinding
 
-    private lateinit var game: Game
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -39,10 +40,8 @@ class DefaultScreen : AppCompatActivity() {
 
         //using application context for some reason
 
-        game = GameSingleton.game
-
         binding.profileButton.setOnClickListener {
-            game.saveGame()
+            GameSingleton.game.saveGame()
             startActivity(Intent(this, ProfileScreen::class.java))
         }
 
@@ -62,7 +61,7 @@ class DefaultScreen : AppCompatActivity() {
             startActivity(Intent(this, ResearchScreen::class.java))
         }
 
-        if(game.account.villageName == null){
+        if(GameSingleton.game.account.villageName == null){
             showPopup("Enter village name: ")
         }
 
@@ -85,19 +84,19 @@ class DefaultScreen : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             while (true) {
 
-                if(game.wall.gameOver){
+                if(GameSingleton.game.wall.gameOver){
                     showGameOverPopup("You have finished the game! Do you want to start over or continue into the infinity mode?")
                 }
 
-                binding.spsText.text = game.tools.getSPS().toString()
+                binding.spsText.text = GameSingleton.game.tools.getSPS().toString()
 
-                binding.wallHealthText.text = game.wall.getCurrentHealth().toString()
+                binding.wallHealthText.text = GameSingleton.game.wall.getCurrentHealth().toString()
 
-                binding.villageNameText.text = game.account.villageName
+                binding.villageNameText.text = GameSingleton.game.account.villageName
 
-                binding.stonesText.text = game.wallet.getBalanceInt().toString()
+                binding.stonesText.text = GameSingleton.game.wallet.getBalanceInt().toString()
 
-                if(!binding.dungeonImageView.isVisible && game.dungeons.isAnyDiscovered()){
+                if(!binding.dungeonImageView.isVisible && GameSingleton.game.dungeons.isAnyDiscovered()){
                     binding.dungeonImageView.visibility = View.VISIBLE
                 }
 
@@ -115,13 +114,13 @@ class DefaultScreen : AppCompatActivity() {
         val screenWidth = resources.displayMetrics.widthPixels
         val maxToolWidthInPixels = (50 * resources.displayMetrics.density).toInt() // Maximum width for each tool in pixels
 
-        val toolsCount = game.tools.getActiveToolsCount()
+        val toolsCount = GameSingleton.game.tools.getActiveToolsCount()
 
         if (toolsCount > 0) {
             // Calculate the available width for each tool
             val availableWidth = screenWidth / toolsCount
 
-            for (tool in game.tools.getTools()) {
+            for (tool in GameSingleton.game.tools.getTools()) {
                 if (tool.isDiscovered && tool.count > 0) {
                     val imageView = ImageView(this)
                     val toolDrawableId = ToolImageMapper.toolImageMap[tool.id]
@@ -144,6 +143,21 @@ class DefaultScreen : AppCompatActivity() {
                     }
                 }
             }
+        }else{
+
+            val textView = TextView(applicationContext)
+
+            textView.text = "Buy your first tool here!"
+
+            textView.setTextAppearance(R.style.textMiddle)
+
+            var typeface = ResourcesCompat.getFont(this, R.font.play_bold)
+
+            textView.setTypeface(typeface)
+
+            textView.setTextColor(Color.RED)
+
+            linearLayout.addView(textView)
         }
     }
 
@@ -160,8 +174,8 @@ class DefaultScreen : AppCompatActivity() {
 
         builder.setPositiveButton("OK") { dialog, which ->
             val userInput = editTextInput.text.toString()
-            game.account.villageName = userInput
-            game.saveGame()
+            GameSingleton.game.account.villageName = userInput
+            GameSingleton.game.saveGame()
         }
 
         builder.setNegativeButton("Cancel") { dialog, which ->
@@ -186,11 +200,11 @@ class DefaultScreen : AppCompatActivity() {
         builder.setView(dialogView)
 
         builder.setPositiveButton("Start Over") { dialog, which ->
-            game = Game(applicationContext)
+            GameSingleton.game = Game(applicationContext)
         }
 
         builder.setNegativeButton("Infinity!!!") { dialog, which ->
-            game.wall.gameOver = false
+            GameSingleton.game.wall.gameOver = false
             dialog.cancel()
         }
 

@@ -11,11 +11,10 @@ abstract class Character{
 
     var currentHealth = 0.0
 
-    //transient is exlucing values of being serialized by the GSON class for JSON
-    @Transient private val defenseThreshold = 80.0
-    @Transient private val criticalMultiplier = 1.5
-    @Transient private val hundred = 100
-    @Transient private val zero = 0
+    private val defenseThreshold = 80.0
+    private val criticalMultiplier = 1.5
+    private val hundred = 100
+    private val zero = 0
 
     fun isDead(): Boolean {
         return (currentHealth <= zero)

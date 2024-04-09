@@ -18,6 +18,8 @@ class WelcomeScreen : AppCompatActivity() {
 
         GameSingleton.game = Game(this.applicationContext)
 
+        GameSingleton.game.loadGame()
+
         binding.root.setOnClickListener {
             startActivity(Intent(this, DefaultScreen::class.java))
         }

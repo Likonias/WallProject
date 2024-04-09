@@ -23,14 +23,14 @@ class Game (private var context : Context){
     var tools = Tools(context)
     var dungeons = Dungeons(context)
 
-    var wall = Wall { checkIfDungeonIsDiscovered() }
+    var wall = Wall()
 
     var wallet = Wallet()
     var currencyWallet = CurrencyWallet()
 
     //5 first items can be
     private val itemsForDiscoveryValue = 5
-    private val firstDungeonThresholdShells = 20
+    private val firstDungeonThresholdShells = 80
     private val unlockItemFromEnemyId = 5
     var toolHasBeenDiscovered = false
 
@@ -50,6 +50,8 @@ class Game (private var context : Context){
             var sps = tools.getSPS()
 
             wall.tickWall(sps)
+
+            checkIfDungeonIsDiscovered()
 
             wallet.deposit(sps)
 

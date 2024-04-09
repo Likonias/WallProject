@@ -7,10 +7,10 @@ data class Player(
     override var defense: Defense = Defense(1, 1)
 ) : Character(){
 
-    @Transient private val healthMultiplier = 0.05
-    @Transient private val levelUpPoints = 3
-    @Transient private val baseLevelUpCost = 1000
-    @Transient private val levelUpCostMultiplier = 5
+    private val healthMultiplier = 0.05
+    private val levelUpPoints = 3
+    private val baseLevelUpCost = 1000
+    private val levelUpCostMultiplier = 1.2
 
     init {
         currentHealth = health
@@ -34,7 +34,7 @@ data class Player(
 
         pointsToSpend = pointsToSpend + levelUpPoints
 
-        levelUpCost = levelUpCost * levelUpCostMultiplier
+        levelUpCost = (levelUpCost * levelUpCostMultiplier).toInt()
 
         level++
 

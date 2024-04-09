@@ -18,9 +18,12 @@ class Tools (@Transient private var context: Context) {
     @Transient private val docRef = db.collection("base").document("tools")
 
     init {
+
+
+
         //loadTools()
 //todo finish tools
-        tools.add(Tool(0, "Pickaxe", 1.0, 10.0, 10.0, Currency(0, 0, 10), 1000))
+        tools.add(Tool(0, "Pickaxe", 1000.0, 10.0, 1.0, Currency(0, 0, 10), 1000))
         tools.add(Tool(1, "Stone Saw", 1.5, 15.0, 20.0, Currency(0, 0, 100), 2000))
         tools.add(Tool(2, "Jackhammer", 5.0, 30.0, 150.0, Currency(0, 0, 500), 5000))
         tools.add(Tool(3, "Automatic Saw", 15.0, 60.0, 400.0, Currency(0, 1, 500), 10000))

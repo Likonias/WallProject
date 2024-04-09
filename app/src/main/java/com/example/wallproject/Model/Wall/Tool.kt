@@ -5,12 +5,12 @@ import com.example.wallproject.Model.Wallets.Currency
 data class Tool(val id : Int, var name : String, var miningPower : Double, var timeToMine : Double, var cost : Double, var upgradeCost : Currency, val researchCost : Int){
 
     //transient is exlucing values of being serialized by the GSON class for JSON
-    @Transient private val zero = 0
-    @Transient private val addingNextCurrencyTreshold = 1000
-    @Transient private val upgradePowerIndex = 0.1
-    @Transient private val upgradeTimeIndex = 0.95
-    @Transient private val upgradeCostIndex = 2.5
-    @Transient private val addIndex = 5.0
+    private val zero = 0
+    private val addingNextCurrencyTreshold = 1000
+    private val upgradePowerIndex = 0.1
+    private val upgradeTimeIndex = 0.95
+    private val upgradeCostIndex = 2.5
+    private val addIndex = 1.1
 
     var level : Int = zero
     var count : Int = zero

@@ -31,7 +31,7 @@ class Wallet() {
 
     fun isEnoughBalance(amount: Double) : Boolean {
 
-        return amount < balance
+        return amount <= balance
 
     }
 
