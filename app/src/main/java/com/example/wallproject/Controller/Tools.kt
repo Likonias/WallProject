@@ -27,32 +27,32 @@ class Tools (@Transient private var context: Context) {
         tools.add(Tool(4, "Stone Destoryer", 30.0, 90.0, 900.0, Currency(0, 10, 1000), 50000))
         tools.add(Tool(5, "Crystal Pickaxe", 60.0, 120.0, 2000.0, Currency(0, 50, 1000), 90000))
         tools.add(Tool(6, "Mystic Hammer", 120.0, 140.0, 4200.0, Currency(0, 150, 1500), 150000))
-        tools.add(Tool(7, "Mage", 160.0, 170.0, 100.0, Currency(0, 300, 2000), 300000))
-        tools.add(Tool(8, "Magical Void", 200.0, 200.0, 8400.0, Currency(1, 500, 2500), 500000))
-        tools.add(Tool(9, "Stone Annihilator", 1000.0, 500.0, 16800.0, Currency(1000, 1000, 1000), 1000000))
+        tools.add(Tool(7, "Mage", 160.0, 170.0, 8400.0, Currency(0, 300, 2000), 300000))
+        tools.add(Tool(8, "Magical Void", 200.0, 200.0, 16800.0, Currency(1, 500, 2500), 500000))
+        tools.add(Tool(9, "Stone Annihilator", 1000.0, 500.0, 30000.0, Currency(1000, 1000, 1000), 1000000))
         tools.get(0).isDiscovered = true
         tools.get(1).isDiscovered = true
         tools.get(2).isDiscovered = true
         tools.get(3).isDiscovered = true
         tools.get(4).isDiscovered = true
-        tools.get(5).isDiscovered = true
-        tools.get(6).isDiscovered = true
-        tools.get(7).isDiscovered = true
-        tools.get(8).isDiscovered = true
-        tools.get(9).isDiscovered = true
-        //tools.get(0).addTool()
-        tools.get(1).addTool()
-        tools.get(2).addTool()
-        tools.get(3).addTool()
-        tools.get(4).addTool()
-        tools.get(5).addTool()
-        tools.get(6).addTool()
-        tools.get(7).addTool()
-        tools.get(8).addTool()
-        tools.get(9).addTool()
-        tools.get(9).addTool()
+//        tools.get(5).isDiscovered = true
+//        tools.get(6).isDiscovered = true
+//        tools.get(7).isDiscovered = true
+//        tools.get(8).isDiscovered = true
+//        tools.get(9).isDiscovered = true
+//        tools.get(0).addTool()
+//        tools.get(1).addTool()
+//        tools.get(2).addTool()
+//        tools.get(3).addTool()
+//        tools.get(4).addTool()
+//        tools.get(5).addTool()
+//        tools.get(6).addTool()
+//        tools.get(7).addTool()
+//        tools.get(8).addTool()
+//        tools.get(9).addTool()
+//        tools.get(9).addTool()
 
-        //saveTools()
+        saveTools()
     }
 
     private fun loadTools() {

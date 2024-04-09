@@ -56,9 +56,21 @@ class Game (private var context : Context){
         }
 
     }
-    //todo init for saving data, locally and from firestore
+
+    val gameSaving = GlobalScope.launch {
+
+        while (true) {
+
+            saveGame()
+
+            delay(60000)
+
+        }
+
+    }
+
     init {
-        //loadGame()
+        loadGame()
     }
 
     fun initializeHeroName(heroName : String) {
