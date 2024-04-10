@@ -63,9 +63,9 @@ class Game (private var context : Context){
 
         while (true) {
 
-            saveGame()
-
             delay(60000)
+
+            saveGame()
 
         }
 

@@ -22,7 +22,7 @@ abstract class Character{
 
     fun attack(character: Character) : Double{
 
-        var trueAttack = calculateAttackTrue(character)
+        var trueAttack = calculateAttackTrue(this)
 
         if(isCritical(trueAttack.luck)){
             trueAttack.attackDmg = (trueAttack.attackDmg * criticalMultiplier).toInt()

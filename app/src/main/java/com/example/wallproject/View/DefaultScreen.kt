@@ -41,7 +41,6 @@ class DefaultScreen : AppCompatActivity() {
         //using application context for some reason
 
         binding.profileButton.setOnClickListener {
-            GameSingleton.game.saveGame()
             startActivity(Intent(this, ProfileScreen::class.java))
         }
 

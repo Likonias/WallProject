@@ -19,9 +19,7 @@ class Tools (@Transient private var context: Context) {
 
     init {
 
-
-
-        //loadTools()
+    //loadTools()
 //todo finish tools
         tools.add(Tool(0, "Pickaxe", 1000.0, 10.0, 1.0, Currency(0, 0, 10), 1000))
         tools.add(Tool(1, "Stone Saw", 1.5, 15.0, 20.0, Currency(0, 0, 100), 2000))
@@ -55,7 +53,7 @@ class Tools (@Transient private var context: Context) {
 //        tools.get(9).addTool()
 //        tools.get(9).addTool()
 
-        saveTools()
+        //saveTools()
     }
 
     private fun loadTools() {

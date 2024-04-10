@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.wallproject.Controller.Game
+import com.example.wallproject.Model.DungeonImageMapper
 import com.example.wallproject.Model.GameSingleton
+import com.example.wallproject.Model.ToolImageMapper
 import com.example.wallproject.R
 import com.example.wallproject.databinding.ActivityDungeonAttackScreenBinding
 import com.example.wallproject.databinding.ActivityDungeonsScreenBinding
@@ -37,6 +39,18 @@ class DungeonAttackScreen : AppCompatActivity() {
 
         binding.enemyAttackImageView.visibility = View.INVISIBLE
         binding.playerAttackImageView.visibility = View.INVISIBLE
+
+        var currDunId = GameSingleton.game.dungeons.currentDungeon.id
+
+        when(currDunId){
+
+            0 -> DungeonImageMapper.dungeon1ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
+            1 -> DungeonImageMapper.dungeon2ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
+            2 -> DungeonImageMapper.dungeon3ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
+            3 -> DungeonImageMapper.dungeon4ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
+            4 -> DungeonImageMapper.dungeon5ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
+
+        }
 
         binding.attackButton.setOnClickListener {
 
