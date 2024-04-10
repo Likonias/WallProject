@@ -44,11 +44,11 @@ class DungeonAttackScreen : AppCompatActivity() {
 
         when(currDunId){
 
-            0 -> DungeonImageMapper.dungeon1ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
-            1 -> DungeonImageMapper.dungeon2ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
-            2 -> DungeonImageMapper.dungeon3ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
-            3 -> DungeonImageMapper.dungeon4ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
-            4 -> DungeonImageMapper.dungeon5ImageMap[currDunId]?.let { binding.playerAttackImageView.setImageResource(it) }
+            0 -> DungeonImageMapper.dungeon1ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            1 -> DungeonImageMapper.dungeon2ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            2 -> DungeonImageMapper.dungeon3ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            3 -> DungeonImageMapper.dungeon4ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            4 -> DungeonImageMapper.dungeon5ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
 
         }
 
