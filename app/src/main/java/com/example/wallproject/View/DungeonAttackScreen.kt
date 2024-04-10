@@ -42,13 +42,15 @@ class DungeonAttackScreen : AppCompatActivity() {
 
         var currDunId = GameSingleton.game.dungeons.currentDungeon.id
 
+        var currEnemyId = GameSingleton.game.dungeons.currentEnemy.id
+
         when(currDunId){
 
-            0 -> DungeonImageMapper.dungeon1ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
-            1 -> DungeonImageMapper.dungeon2ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
-            2 -> DungeonImageMapper.dungeon3ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
-            3 -> DungeonImageMapper.dungeon4ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
-            4 -> DungeonImageMapper.dungeon5ImageMap[currDunId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            0 -> DungeonImageMapper.dungeon1ImageMap[currEnemyId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            1 -> DungeonImageMapper.dungeon2ImageMap[currEnemyId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            2 -> DungeonImageMapper.dungeon3ImageMap[currEnemyId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            3 -> DungeonImageMapper.dungeon4ImageMap[currEnemyId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
+            4 -> DungeonImageMapper.dungeon5ImageMap[currEnemyId]?.let { binding.enemyImageViewAttack.setImageResource(it) }
 
         }
 
