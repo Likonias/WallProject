@@ -9,7 +9,6 @@ data class Player(
 
     private val healthMultiplier = 0.05
     private val levelUpPoints = 3
-    private val baseLevelUpCost = 1000
     private val levelUpCostMultiplier = 1.2
 
     init {
@@ -17,6 +16,8 @@ data class Player(
     }
 
     private var baseHealth = health
+    private var baseLevelUpCost = 10000
+
 
     var level : Int = 1
 
@@ -27,22 +28,24 @@ data class Player(
     fun levelUp(){
 
         if (level % 10 == 0 ) {
-            updateBaseHealth()
+            updateBaseValues()
         }
 
         updateHealth()
 
         pointsToSpend = pointsToSpend + levelUpPoints
 
-        levelUpCost = (levelUpCost * levelUpCostMultiplier).toInt()
+        levelUpCost = (levelUpCost + baseLevelUpCost * levelUpCostMultiplier).toInt()
 
         level++
 
     }
 
-    private fun updateBaseHealth() {
+    private fun updateBaseValues() {
 
         baseHealth = health
+
+        baseLevelUpCost = levelUpCost
 
     }
 
