@@ -12,4 +12,21 @@
     <string name="sign_out">Sign Out</string>
     <string name="wall_description">The mighty wall has been standing before the humanity for ages, not anyone knowing of its hidden secrets. Now is the time, humanity is finnally ready to uncover the secrets of the Wall.</string>
     <string name="wall_stats_header">Wall Stats:</string>
+    <string name="click_to_enter_the_game">Click to enter the game</string>
+    <string name="your_village">Your Village</string>
+    <string name="textview">TextView</string>
+    <string name="attack">Attack</string>
+    <string name="wall_shells_remaining">Wall shells remaining</string>
+    <string name="buy">Buy</string>
+    <string name="you_can_search_through_stones_and_with_a_little_luck_find_something_useful_or_you_can_buy_them_like_a_coward">You can search through stones and with a little luck find something useful. Or you can buy them, like a coward..</string>
+    <string name="search">Search!</string>
+    <string name="research">Research</string>
+    <string name="count">Count</string>
+    <string name="sps">SPS</string>
+    <string name="time_to_mine">Time to mine</string>
+    <string name="cost">Cost</string>
+    <string name="tools">Tools</string>
+    <string name="enter_data">Enter Data</string>
+    <string name="level">Level:</string>
+    <string name="research_cost">Research cost:</string>
 </resources>

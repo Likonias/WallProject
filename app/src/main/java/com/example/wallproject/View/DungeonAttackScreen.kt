@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.wallproject.Controller.Game
 import com.example.wallproject.Model.DungeonImageMapper
 import com.example.wallproject.Model.GameSingleton
@@ -40,6 +41,9 @@ class DungeonAttackScreen : AppCompatActivity() {
         binding.enemyAttackImageView.visibility = View.INVISIBLE
         binding.playerAttackImageView.visibility = View.INVISIBLE
 
+        binding.playerNameAttackTextView.text = GameSingleton.game.dungeons.player.name
+        binding.enemyNameAttackTextView.text = GameSingleton.game.dungeons.currentEnemy.name
+
         var currDunId = GameSingleton.game.dungeons.currentDungeon.id
 
         var currEnemyId = GameSingleton.game.dungeons.currentEnemy.id
@@ -60,7 +64,9 @@ class DungeonAttackScreen : AppCompatActivity() {
 
                 this.startActivity(Intent(this, DungeonsScreen::class.java))
 
-            }else{
+            }else if(GameSingleton.game.dungeons.attackTimerZero()){
+
+                binding.attackButton.visibility = View.INVISIBLE
 
                 startAttackSimulation()
 
@@ -72,12 +78,33 @@ class DungeonAttackScreen : AppCompatActivity() {
 
     }
 
+    private fun startUpdatingData() {
+
+        GlobalScope.launch(Dispatchers.Main) {
+            while (true) {
+
+                if(!GameSingleton.game.dungeons.attackTimerZero()){
+
+                    binding.attackButton.text = GameSingleton.game.dungeons.dungeonsTimerSeconds.toString()
+
+                }
+
+                // Delay for 1 second
+                delay(1000)
+            }
+        }
+    }
+
     private fun startAttackSimulation() {
+
         coroutineJob?.cancel() // Cancel any existing coroutine job
 
         coroutineJob = CoroutineScope(Dispatchers.Main).launch {
+
             attackSimulation()
+
         }
+
     }
 
     private suspend fun attackSimulation() {
@@ -104,6 +131,8 @@ class DungeonAttackScreen : AppCompatActivity() {
 
                     binding.attackButton.text = returnToDungeonsString
 
+                    binding.attackButton.visibility = View.VISIBLE
+
                     if(GameSingleton.game.toolHasBeenDiscovered){
 
                         Toast.makeText(applicationContext, "A new tool has been discovered!", Toast.LENGTH_SHORT).show()
@@ -128,6 +157,8 @@ class DungeonAttackScreen : AppCompatActivity() {
                 if(heroHealth <= 0){
 
                     binding.attackButton.text = returnToDungeonsString
+
+                    binding.attackButton.visibility = View.VISIBLE
 
                     break
 

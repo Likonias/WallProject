@@ -26,6 +26,8 @@ class Dungeons(@Transient private var context: Context) {
 
     lateinit var currentDungeon : Dungeon
 
+    var dungeonsTimerSeconds = 0
+
     init {
         //todo make sure to fix this
         //loadDungeons()
@@ -68,6 +70,10 @@ class Dungeons(@Transient private var context: Context) {
         //        saveDungeons()
     }
 
+    fun attackTimerZero() : Boolean {
+        return dungeonsTimerSeconds == 0
+    }
+
     fun initializePlayer(playerName : String){
         player.name = playerName
     }
@@ -87,6 +93,7 @@ class Dungeons(@Transient private var context: Context) {
         if (currentEnemy.isDead()){
             player.resetHealth()
             healthAfterAttack = 0.0
+            dungeonsTimerSeconds = 600
         }
 
 
@@ -102,6 +109,7 @@ class Dungeons(@Transient private var context: Context) {
             player.resetHealth()
             currentEnemy.resetHealth()
             healthAfterAttack = 0.0
+            dungeonsTimerSeconds = 600
         }
 
         return healthAfterAttack

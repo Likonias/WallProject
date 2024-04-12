@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".View.DungeonsScreen">
@@ -100,7 +101,7 @@
 
     <Button
         android:id="@+id/levelUpButton"
-        style="@style/textSmall"
+        style="@style/buttonStyle"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -113,7 +114,7 @@
 
     <Button
         android:id="@+id/addAdButton"
-        style="@style/textSmall"
+        style="@style/buttonStyle"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -126,7 +127,7 @@
 
     <Button
         android:id="@+id/addApButton"
-        style="@style/textSmall"
+        style="@style/buttonStyle"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -138,7 +139,7 @@
 
     <Button
         android:id="@+id/addArmorButton"
-        style="@style/textSmall"
+        style="@style/buttonStyle"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -150,7 +151,7 @@
 
     <Button
         android:id="@+id/addMrButton"
-        style="@style/textSmall"
+        style="@style/buttonStyle"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"
@@ -162,7 +163,7 @@
 
     <Button
         android:id="@+id/addLuckButton"
-        style="@style/textSmall"
+        style="@style/buttonStyle"
         android:layout_width="98dp"
         android:layout_height="29dp"
         android:padding="0dp"

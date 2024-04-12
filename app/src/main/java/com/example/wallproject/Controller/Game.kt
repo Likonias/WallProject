@@ -55,6 +55,10 @@ class Game (private var context : Context){
 
             wallet.deposit(sps)
 
+            if(dungeons.dungeonsTimerSeconds > 0){
+                dungeons.dungeonsTimerSeconds--
+            }
+
         }
 
     }
