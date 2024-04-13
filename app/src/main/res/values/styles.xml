@@ -17,10 +17,10 @@
     </style>
 
     <style name="buttonStyle" parent="textSmall">
-        <item name="android:backgroundTint">#9426CF</item>
+        <item name="android:backgroundTint">#6666FF  </item>
     </style>
 
     <style name="background">
-        <item name="android:background">#FFFFFF</item>
+        <item name="android:background">#ff8566</item>
     </style>
 </resources>
