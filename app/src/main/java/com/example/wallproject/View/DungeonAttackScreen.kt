@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 import kotlin.random.Random
 import kotlinx.coroutines.*
 
-class DungeonAttackScreen : AppCompatActivity() {
+class DungeonAttackScreen : BaseActivity() {
 
     private lateinit var binding: ActivityDungeonAttackScreenBinding
 
@@ -32,6 +32,7 @@ class DungeonAttackScreen : AppCompatActivity() {
     private val hundred = 100
 
     private var coroutineJob: Job? = null
+    private var coroutineDataUpdating: Job? = null
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -76,11 +77,13 @@ class DungeonAttackScreen : AppCompatActivity() {
 
         updateDefaultHealth()
 
+        startUpdatingData()
+
     }
 
     private fun startUpdatingData() {
 
-        GlobalScope.launch(Dispatchers.Main) {
+        coroutineDataUpdating = GlobalScope.launch(Dispatchers.Main) {
             while (true) {
 
                 if(!GameSingleton.game.dungeons.attackTimerZero()){
@@ -96,6 +99,8 @@ class DungeonAttackScreen : AppCompatActivity() {
     }
 
     private fun startAttackSimulation() {
+
+        coroutineDataUpdating?.cancel()
 
         coroutineJob?.cancel() // Cancel any existing coroutine job
 

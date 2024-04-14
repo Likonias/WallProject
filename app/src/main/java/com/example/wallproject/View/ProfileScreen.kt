@@ -1,26 +1,20 @@
 package com.example.wallproject.View
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.isVisible
 import com.example.wallproject.Controller.GoogleSignIn
 import com.example.wallproject.Model.GameSingleton
-import com.example.wallproject.R
 import com.example.wallproject.databinding.ActivityProfileScreenBinding
-import com.google.android.gms.common.SignInButton
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ProfileScreen : AppCompatActivity() {
+class ProfileScreen : BaseActivity() {
 
     private lateinit var binding: ActivityProfileScreenBinding
 
@@ -77,7 +71,7 @@ class ProfileScreen : AppCompatActivity() {
 
                 binding.villageNameTextViewProfile.text = GameSingleton.game.account.villageName
 
-                binding.stonesTextViewProfile.text = GameSingleton.game.wallet.getBalanceInt().toString()
+                binding.stonesTextViewProfile.text = GameSingleton.game.wallet.getBalanceFormated().toString()
 
                 binding.bronzeTextViewProfile.text = GameSingleton.game.currencyWallet.getBronze().toString()
                 binding.silverTextViewProfile.text = GameSingleton.game.currencyWallet.getSilver().toString()

@@ -2,11 +2,7 @@ package com.example.wallproject.View
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.Typeface
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -18,7 +14,6 @@ import androidx.core.view.isVisible
 import com.example.wallproject.Controller.Game
 import com.example.wallproject.Model.GameSingleton
 import com.example.wallproject.Model.ToolImageMapper
-import com.example.wallproject.Model.Wall.Wall
 import com.example.wallproject.R
 import com.example.wallproject.databinding.ActivityDefaultScreenBinding
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +21,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class DefaultScreen : AppCompatActivity() {
+class DefaultScreen : BaseActivity() {
 
     private lateinit var binding: ActivityDefaultScreenBinding
 
@@ -93,7 +88,7 @@ class DefaultScreen : AppCompatActivity() {
 
                 binding.villageNameText.text = GameSingleton.game.account.villageName
 
-                binding.stonesText.text = GameSingleton.game.wallet.getBalanceInt().toString()
+                binding.stonesText.text = GameSingleton.game.wallet.getBalanceFormated().toString()
 
                 if(!binding.dungeonImageView.isVisible && GameSingleton.game.dungeons.isAnyDiscovered()){
                     binding.dungeonImageView.visibility = View.VISIBLE

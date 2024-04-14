@@ -7,7 +7,7 @@ import com.example.wallproject.Controller.Game
 import com.example.wallproject.Model.GameSingleton
 import com.example.wallproject.databinding.ActivityWelcomeScreenBinding
 
-class WelcomeScreen : AppCompatActivity() {
+class WelcomeScreen : BaseActivity() {
 
     private lateinit var binding: ActivityWelcomeScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -23,9 +23,9 @@ class Wallet() {
 
     }
 
-    fun getBalanceInt() : Int {
+    fun getBalanceFormated() : String {
 
-        return balance.toInt()
+        return String.format("%.2f", balance).toDouble().toString()
 
     }
 

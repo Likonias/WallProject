@@ -11,7 +11,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class WallScreen : AppCompatActivity() {
+class WallScreen : BaseActivity() {
 
     private lateinit var binding: ActivityWallScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {

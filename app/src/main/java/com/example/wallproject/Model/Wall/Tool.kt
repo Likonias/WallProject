@@ -10,7 +10,10 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
     private val upgradePowerIndex = 0.1
     private val upgradeTimeIndex = 0.95
     private val upgradeCostIndex = 2.5
-    private val addIndex = 1.1
+    private val addIndex = 1.15
+    private val addSimpleIndex = 0.4
+
+    private var baseCost = cost
 
     var level : Int = zero
     var count : Int = zero
@@ -22,9 +25,13 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
 
     fun addTool(){
 
+        if(count % 2 == 0){
+            baseCost = baseCost * addIndex
+        }
+
         count++
 
-        cost = cost * addIndex
+        cost = cost + baseCost * addSimpleIndex
 
     }
 

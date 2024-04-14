@@ -30,7 +30,7 @@ class Game (private var context : Context){
 
     //5 first items can be
     private val itemsForDiscoveryValue = 5
-    private val firstDungeonThresholdShells = 80
+    private var dungeonThresholdShells = 80
     private val unlockItemFromEnemyId = 5
     var toolHasBeenDiscovered = false
 
@@ -332,9 +332,11 @@ class Game (private var context : Context){
 
     private fun checkIfDungeonIsDiscovered() {
 
-        if(wall.shells <= firstDungeonThresholdShells && wall.shells % 10 == 0){
+        if(wall.shells <= dungeonThresholdShells && wall.shells % 10 == 0){
 
             dungeons.discoverNext()
+
+            dungeonThresholdShells = dungeonThresholdShells - 10
 
         }
 

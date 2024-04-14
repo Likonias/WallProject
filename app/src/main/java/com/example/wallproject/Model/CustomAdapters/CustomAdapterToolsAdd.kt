@@ -24,7 +24,7 @@ class CustomAdapterToolsAdd(private val toolsList: List<Tool>) :
         holder.nameTextView.text = tool.name
         holder.miningPowerTextView.text = tool.getMiningPowerFormated().toString()
         holder.timeToMineTextView.text = tool.getTimeToMineFormated().toString()
-        holder.addCostTextView.text = tool.cost.toString()
+        holder.addCostTextView.text = String.format("%.2f", tool.cost).toDouble().toString()
         holder.countTextView.text = tool.count.toString()
 
         holder.addButton.setOnClickListener {

@@ -1,9 +1,6 @@
 package com.example.wallproject.View
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wallproject.Model.CustomAdapters.CustomAdapterToolsAdd
 import com.example.wallproject.Model.GameSingleton
@@ -13,7 +10,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ToolsScreen : AppCompatActivity() {
+class ToolsScreen : BaseActivity() {
 
     private lateinit var binding: ActivityToolsScreenBinding
     private lateinit var customAdapterToolsAdd: CustomAdapterToolsAdd
@@ -42,7 +39,7 @@ class ToolsScreen : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             while (true) {
 
-                binding.stonesTextView.text = GameSingleton.game.wallet.getBalanceInt().toString()
+                binding.stonesTextView.text = GameSingleton.game.wallet.getBalanceFormated().toString()
 
                 // Delay for 0,1 second for smoother experience
                 delay(100)

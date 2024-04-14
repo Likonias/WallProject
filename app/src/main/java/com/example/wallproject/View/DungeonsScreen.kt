@@ -1,28 +1,22 @@
 package com.example.wallproject.View
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.wallproject.Controller.Game
 import com.example.wallproject.Model.CustomAdapters.CustomAdapterDungeons
-import com.example.wallproject.Model.CustomAdapters.CustomAdapterToolsAdd
 import com.example.wallproject.Model.GameSingleton
 import com.example.wallproject.R
-import com.example.wallproject.databinding.ActivityDefaultScreenBinding
 import com.example.wallproject.databinding.ActivityDungeonsScreenBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class DungeonsScreen : AppCompatActivity() {
+class DungeonsScreen : BaseActivity() {
 
     private lateinit var binding: ActivityDungeonsScreenBinding
     private lateinit var customAdapterDungeons: CustomAdapterDungeons
@@ -123,7 +117,7 @@ class DungeonsScreen : AppCompatActivity() {
 
                 binding.playerNameTextView.text = player.name
 
-                binding.stonesTextViewDungeons.text = GameSingleton.game.wallet.getBalanceInt().toString()
+                binding.stonesTextViewDungeons.text = GameSingleton.game.wallet.getBalanceFormated().toString()
 
                 binding.levelUpCostTextView.text = player.levelUpCost.toString()
 

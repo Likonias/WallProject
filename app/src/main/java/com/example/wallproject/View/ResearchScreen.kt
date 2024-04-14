@@ -3,7 +3,6 @@ package com.example.wallproject.View
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wallproject.Model.CustomAdapters.CustomAdapterToolsResearch
 import com.example.wallproject.Model.GameSingleton
@@ -13,7 +12,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ResearchScreen : AppCompatActivity() {
+class ResearchScreen : BaseActivity() {
 
     private lateinit var binding: ActivityResearchScreenBinding
     private lateinit var customAdapterToolsResearch: CustomAdapterToolsResearch
@@ -89,7 +88,7 @@ class ResearchScreen : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             while (true) {
 
-                binding.stonesResearchTextView.text = GameSingleton.game.wallet.getBalanceInt().toString()
+                binding.stonesResearchTextView.text = GameSingleton.game.wallet.getBalanceFormated().toString()
 
                 binding.currentBronzeTextView.text = GameSingleton.game.currencyWallet.getBronze().toString()
                 binding.currentSilverTextView.text = GameSingleton.game.currencyWallet.getSilver().toString()
