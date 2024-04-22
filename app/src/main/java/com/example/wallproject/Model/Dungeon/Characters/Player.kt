@@ -9,14 +9,14 @@ data class Player(
 
     private val healthMultiplier = 0.05
     private val levelUpPoints = 3
-    private val levelUpCostMultiplier = 1.2
+    private val levelUpCostMultiplier = 1.15
 
     init {
         currentHealth = health
     }
 
     private var baseHealth = health
-    private var baseLevelUpCost = 10000
+    private var baseLevelUpCost = 5000
 
 
     var level : Int = 1
