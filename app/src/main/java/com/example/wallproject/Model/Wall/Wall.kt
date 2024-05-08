@@ -4,7 +4,6 @@ import kotlin.math.round
 
 class Wall() {
 
-    //transient is exlucing values of being serialized by the GSON class for JSON
     private val healthMultiplier = 1.2
     private var healthBase = 1000.0
 
@@ -13,38 +12,27 @@ class Wall() {
     var gameOver = false
 
     fun tickWall(stonesPerSecond : Double) : Int {
-
         health -= stonesPerSecond
 
-        if(health <= 0)
+        if(health <= 0){
             breakShell()
+        }
 
         return health.toInt()
-
     }
-
     fun getCurrentHealth() : Double{
         return String.format("%.2f", health).toDouble()
     }
-
     private fun breakShell(){
-
         health = healthUpdate()
 
         if(shells == 0){
             gameOver = true
         }
-
         shells--
-
     }
-
     private fun healthUpdate() : Double {
-
         healthBase = healthBase * healthMultiplier
-
         return healthBase
-
     }
-
 }
