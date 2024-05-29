@@ -183,4 +183,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/wallSimpleTextViewProfile"
         app:layout_constraintTop_toTopOf="@+id/wallSimpleTextViewProfile" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/hero_name"
+        app:layout_constraintBottom_toTopOf="@+id/playerNameTextViewProfile"
+        app:layout_constraintEnd_toEndOf="@+id/playerNameTextViewProfile"
+        app:layout_constraintStart_toStartOf="@+id/playerNameTextViewProfile" />
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/textSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/hero_level"
+        app:layout_constraintBottom_toTopOf="@+id/playerLevelTextViewProfile"
+        app:layout_constraintEnd_toEndOf="@+id/playerLevelTextViewProfile"
+        app:layout_constraintStart_toStartOf="@+id/playerLevelTextViewProfile" />
 </androidx.constraintlayout.widget.ConstraintLayout>

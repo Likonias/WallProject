@@ -29,4 +29,6 @@
     <string name="enter_data">Enter Data</string>
     <string name="level">Level:</string>
     <string name="research_cost">Research cost:</string>
+    <string name="hero_name">Hero Name</string>
+    <string name="hero_level">Hero Level</string>
 </resources>

@@ -9,8 +9,8 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
     private val addingNextCurrencyTreshold = 1000
     private val upgradePowerIndex = 0.1
     private val upgradeTimeIndex = 0.95
-    private val upgradeCostIndex = 2.5
-    private val addIndex = 1.15
+    private val upgradeCostIndex = 1.1
+    private val addIndex = 1.12
     private val addSimpleIndex = 0.4
 
     private var baseCost = cost
@@ -25,7 +25,7 @@ data class Tool(val id : Int, var name : String, var miningPower : Double, var t
 
     fun addTool(){
 
-        if(count % 2 == 0){
+        if(count % 4 == 0){
             baseCost = baseCost * addIndex
         }
 

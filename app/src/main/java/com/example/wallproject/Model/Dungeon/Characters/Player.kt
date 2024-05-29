@@ -9,7 +9,8 @@ data class Player(
 
     private val healthMultiplier = 0.05
     private val levelUpPoints = 3
-    private val levelUpCostMultiplier = 1.15
+    private val levelUpCostMultiplier = 1.5
+    private val addSimpleIndex = 0.4
 
     init {
         currentHealth = health
@@ -35,7 +36,7 @@ data class Player(
 
         pointsToSpend = pointsToSpend + levelUpPoints
 
-        levelUpCost = (levelUpCost + baseLevelUpCost * levelUpCostMultiplier).toInt()
+        levelUpCost = (levelUpCost + baseLevelUpCost * addSimpleIndex).toInt()
 
         level++
 
